@@ -112,30 +112,30 @@
 /* Light theme — provisional, brand approval pending */
 :root,
 [data-pas-theme="light"] {
-  --pas-color-primary: #14539a;
+  --pas-color-primary: #075e53;
   --pas-color-on-primary: #ffffff;
-  --pas-color-primary-container: #d6e3ff;
-  --pas-color-on-primary-container: #001c3a;
-  --pas-color-secondary: #44546b;
+  --pas-color-primary-container: #d9f0e8;
+  --pas-color-on-primary-container: #143d32;
+  --pas-color-secondary: #a33328;
   --pas-color-on-secondary: #ffffff;
   --pas-color-tertiary: #0f5f55;
   --pas-color-on-tertiary: #ffffff;
-  --pas-color-surface: #fbfcfd;
+  --pas-color-surface: #ffffff;
   --pas-color-on-surface: #191c1f;
   --pas-color-surface-container: #eef1f5;
   --pas-color-on-surface-muted: #5a6169;
   --pas-color-outline: #737b83;
   --pas-color-error: #b3261e;
   --pas-color-on-error: #ffffff;
-  --pas-color-focus: #14539a;
+  --pas-color-focus: #075e53;
 }
 
 /* Dark theme — provisional, brand approval pending */
 [data-pas-theme="dark"] {
-  --pas-color-primary: #a9c7ff;
-  --pas-color-on-primary: #001c3a;
-  --pas-color-primary-container: #0f3d78;
-  --pas-color-on-primary-container: #d6e3ff;
+  --pas-color-primary: #94dfca;
+  --pas-color-on-primary: #143d32;
+  --pas-color-primary-container: #164b3c;
+  --pas-color-on-primary-container: #d9f0e8;
   --pas-color-secondary: #b3c6e0;
   --pas-color-on-secondary: #1e2c3d;
   --pas-color-tertiary: #7fd8c9;
@@ -147,16 +147,16 @@
   --pas-color-outline: #8b949c;
   --pas-color-error: #ffb4ab;
   --pas-color-on-error: #690005;
-  --pas-color-focus: #a9c7ff;
+  --pas-color-focus: #94dfca;
 }
 
 /* Follow the operating system when no explicit theme is set. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-pas-theme]) {
-    --pas-color-primary: #a9c7ff;
-    --pas-color-on-primary: #001c3a;
-    --pas-color-primary-container: #0f3d78;
-    --pas-color-on-primary-container: #d6e3ff;
+    --pas-color-primary: #94dfca;
+    --pas-color-on-primary: #143d32;
+    --pas-color-primary-container: #164b3c;
+    --pas-color-on-primary-container: #d9f0e8;
     --pas-color-secondary: #b3c6e0;
     --pas-color-on-secondary: #1e2c3d;
     --pas-color-tertiary: #7fd8c9;
@@ -168,7 +168,7 @@
     --pas-color-outline: #8b949c;
     --pas-color-error: #ffb4ab;
     --pas-color-on-error: #690005;
-    --pas-color-focus: #a9c7ff;
+    --pas-color-focus: #94dfca;
   }
 }
 

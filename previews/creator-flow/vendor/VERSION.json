@@ -6,7 +6,7 @@
     "variables.css": {
       "source": "dist/web/variables.css",
       "bytes": 6175,
-      "sha256": "f454a3fc277ae29437324a3ca498556b82a1640742f0745e1391bbb7ea0b3e3a"
+      "sha256": "6499f26e6bd281625d914a51deef84f58876969b0da8090e37fed3880ccc9486"
     },
     "base.css": {
       "source": "adapters/web/base.css",

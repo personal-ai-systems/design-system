@@ -32,15 +32,15 @@ export const tokens = {
       "96": "#1c2024"
     },
     "accent": {
-      "10": "#001c3a",
-      "20": "#0f3d78",
-      "30": "#14539a",
-      "60": "#a9c7ff",
-      "80": "#d6e3ff"
+      "10": "#143d32",
+      "20": "#164b3c",
+      "30": "#075e53",
+      "60": "#94dfca",
+      "80": "#d9f0e8"
     },
     "cool": {
       "20": "#1e2c3d",
-      "30": "#44546b",
+      "30": "#a33328",
       "70": "#b3c6e0"
     },
     "deep": {
@@ -412,22 +412,22 @@ export const tokens = {
       "status": "provisional",
       "brandApproval": "pending",
       "colors": {
-        "primary": "#14539a",
+        "primary": "#075e53",
         "on-primary": "#ffffff",
-        "primary-container": "#d6e3ff",
-        "on-primary-container": "#001c3a",
-        "secondary": "#44546b",
+        "primary-container": "#d9f0e8",
+        "on-primary-container": "#143d32",
+        "secondary": "#a33328",
         "on-secondary": "#ffffff",
         "tertiary": "#0f5f55",
         "on-tertiary": "#ffffff",
-        "surface": "#fbfcfd",
+        "surface": "#ffffff",
         "on-surface": "#191c1f",
         "surface-container": "#eef1f5",
         "on-surface-muted": "#5a6169",
         "outline": "#737b83",
         "error": "#b3261e",
         "on-error": "#ffffff",
-        "focus": "#14539a"
+        "focus": "#075e53"
       }
     },
     "dark": {
@@ -436,10 +436,10 @@ export const tokens = {
       "status": "provisional",
       "brandApproval": "pending",
       "colors": {
-        "primary": "#a9c7ff",
-        "on-primary": "#001c3a",
-        "primary-container": "#0f3d78",
-        "on-primary-container": "#d6e3ff",
+        "primary": "#94dfca",
+        "on-primary": "#143d32",
+        "primary-container": "#164b3c",
+        "on-primary-container": "#d9f0e8",
         "secondary": "#b3c6e0",
         "on-secondary": "#1e2c3d",
         "tertiary": "#7fd8c9",
@@ -451,7 +451,7 @@ export const tokens = {
         "outline": "#8b949c",
         "error": "#ffb4ab",
         "on-error": "#690005",
-        "focus": "#a9c7ff"
+        "focus": "#94dfca"
       }
     }
   }

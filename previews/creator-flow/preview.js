@@ -1,34 +1,29 @@
 const root = document.documentElement;
+const reviewMode = new URLSearchParams(window.location.search).get('review') === '1';
 const direction = root.dataset.previewTheme;
+document.querySelector('.review-strip').hidden = !reviewMode;
 document.querySelector(`[data-direction="${direction}"]`)?.setAttribute('aria-current', 'page');
 
-const stories = [
-  ['For travel creators', 'The places you almost kept to yourself.', 'Turn a weekend away into a short reel and a longer, more personal story. The location, the little discoveries, the things you would tell a friend.', '“Not another hotel tour. The bit that made us want to stay.”', '70% center'],
-  ['For independent brands', 'A small business. A story worth telling.', 'Bring the experience behind your product into focus. Shape a considered brand story from your own footage and the details only you can tell.', '“The view is beautiful. The people behind the place make the story.”', '20% center'],
-  ['For multilingual storytellers', 'More languages. The same point of view.', 'The planned voice workflow pairs reviewed translation with an approved voice. Keep control of meaning, delivery and what is ultimately shared.', '“Tell it naturally. Make space for a different audience.”', '90% center'],
-];
-let currentStory = 0;
-const showStory = (next) => {
-  currentStory = (next + stories.length) % stories.length;
-  const [category, title, copy, quote, position] = stories[currentStory];
-  for (const [id, text] of Object.entries({ 'story-category': category, 'story-title': title, 'story-copy': copy, 'story-quote': quote })) document.getElementById(id).textContent = text;
-  document.getElementById('story-count').textContent = `0${currentStory + 1} / 03`;
-  document.querySelector('.story-photo img').style.objectPosition = position;
-  document.querySelectorAll('[data-story]').forEach((button) => button.setAttribute('aria-pressed', String(Number(button.dataset.story) === currentStory)));
-};
-document.getElementById('next-story').addEventListener('click', () => showStory(currentStory + 1));
-document.getElementById('previous-story').addEventListener('click', () => showStory(currentStory - 1));
-document.querySelectorAll('[data-story]').forEach((button) => button.addEventListener('click', () => showStory(Number(button.dataset.story))));
-document.querySelector('.story-slide').addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); showStory(currentStory + (event.key === 'ArrowRight' ? 1 : -1)); }
-});
 document.getElementById('interest-form').addEventListener('submit', (event) => {
   event.preventDefault();
-  const result = document.getElementById('form-result');
-  result.hidden = false;
-  result.textContent = 'Preview complete. Nothing was sent or stored. Use “Get in touch” to contact us by email.';
+  const data = new FormData(event.currentTarget);
+  const body = [
+    'Hello Personal AI Systems,',
+    '',
+    'I would like to discuss Creator Flow early access.',
+    '',
+    `Name: ${data.get('name')}`,
+    `I create for: ${data.get('audience')}`,
+    '',
+    String(data.get('message') || ''),
+  ].join('\n');
+  const query = new URLSearchParams({ subject: 'Creator Flow early-access enquiry', body });
+  document.getElementById('enquiry-link').href = `mailto:kirill@consens.com.au?${query}`;
+  document.getElementById('enquiry-copy').value = body;
+  document.getElementById('form-result').hidden = false;
 });
 
+if (reviewMode) {
 const dialog = document.getElementById('palette-dialog');
 const editable = { primary: 'Primary action', 'on-primary': 'Action text', surface: 'Page background', 'on-surface': 'Main text', 'surface-container': 'Section background', 'primary-container': 'Feature background', 'on-primary-container': 'Feature text', tertiary: 'Accent', 'on-surface-muted': 'Secondary text' };
 const allRoles = ['primary', 'on-primary', 'primary-container', 'on-primary-container', 'secondary', 'on-secondary', 'tertiary', 'on-tertiary', 'surface', 'on-surface', 'surface-container', 'on-surface-muted', 'outline', 'error', 'on-error', 'focus'];
@@ -63,3 +58,4 @@ document.getElementById('export-colours').addEventListener('click', () => {
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = `creator-flow-${direction}-palette.json`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+}

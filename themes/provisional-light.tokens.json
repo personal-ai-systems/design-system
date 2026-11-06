@@ -17,7 +17,7 @@
     "on-secondary": { "$type": "color", "$value": "{color.reference.neutral.0}" },
     "tertiary": { "$type": "color", "$value": "{color.reference.deep.30}" },
     "on-tertiary": { "$type": "color", "$value": "{color.reference.neutral.0}" },
-    "surface": { "$type": "color", "$value": "{color.reference.neutral.4}" },
+    "surface": { "$type": "color", "$value": "{color.reference.neutral.0}" },
     "on-surface": { "$type": "color", "$value": "{color.reference.neutral.85}" },
     "surface-container": { "$type": "color", "$value": "{color.reference.neutral.10}" },
     "on-surface-muted": { "$type": "color", "$value": "{color.reference.neutral.55}" },

@@ -35,15 +35,15 @@
         "96": { "$type": "color", "$value": "#1c2024" }
       },
       "accent": {
-        "10": { "$type": "color", "$value": "#001c3a" },
-        "20": { "$type": "color", "$value": "#0f3d78" },
-        "30": { "$type": "color", "$value": "#14539a" },
-        "60": { "$type": "color", "$value": "#a9c7ff" },
-        "80": { "$type": "color", "$value": "#d6e3ff" }
+        "10": { "$type": "color", "$value": "#143d32" },
+        "20": { "$type": "color", "$value": "#164b3c" },
+        "30": { "$type": "color", "$value": "#075e53" },
+        "60": { "$type": "color", "$value": "#94dfca" },
+        "80": { "$type": "color", "$value": "#d9f0e8" }
       },
       "cool": {
         "20": { "$type": "color", "$value": "#1e2c3d" },
-        "30": { "$type": "color", "$value": "#44546b" },
+        "30": { "$type": "color", "$value": "#a33328" },
         "70": { "$type": "color", "$value": "#b3c6e0" }
       },
       "deep": {

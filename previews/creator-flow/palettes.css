@@ -1,7 +1,7 @@
-/* Generated preview-only colour proposals; core brand tokens are unchanged. */
+/* Generated: canonical default and reviewer-only alternatives. */
 :root {
   --preview-on-image: #ffffff;
-  --preview-image-shade: #00130f40;
+  --preview-image-shade: #00130f99;
   --preview-image-shadow: #00130f99;
   --preview-studio-swatch: #075e53;
   --preview-signal-swatch: #2348b5;
@@ -14,13 +14,13 @@
   --pas-color-on-primary-container: #143d32;
   --pas-color-secondary: #a33328;
   --pas-color-on-secondary: #ffffff;
-  --pas-color-tertiary: #a33328;
+  --pas-color-tertiary: #0f5f55;
   --pas-color-on-tertiary: #ffffff;
   --pas-color-surface: #ffffff;
-  --pas-color-on-surface: #182522;
-  --pas-color-surface-container: #f0f5f2;
-  --pas-color-on-surface-muted: #52635c;
-  --pas-color-outline: #6d7c75;
+  --pas-color-on-surface: #191c1f;
+  --pas-color-surface-container: #eef1f5;
+  --pas-color-on-surface-muted: #5a6169;
+  --pas-color-outline: #737b83;
   --pas-color-error: #b3261e;
   --pas-color-on-error: #ffffff;
   --pas-color-focus: #075e53;

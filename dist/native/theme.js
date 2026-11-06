@@ -28,22 +28,22 @@ export const themes = {
     "status": "provisional",
     "brandApproval": "pending",
     "colors": {
-      "primary": "#14539a",
+      "primary": "#075e53",
       "on-primary": "#ffffff",
-      "primary-container": "#d6e3ff",
-      "on-primary-container": "#001c3a",
-      "secondary": "#44546b",
+      "primary-container": "#d9f0e8",
+      "on-primary-container": "#143d32",
+      "secondary": "#a33328",
       "on-secondary": "#ffffff",
       "tertiary": "#0f5f55",
       "on-tertiary": "#ffffff",
-      "surface": "#fbfcfd",
+      "surface": "#ffffff",
       "on-surface": "#191c1f",
       "surface-container": "#eef1f5",
       "on-surface-muted": "#5a6169",
       "outline": "#737b83",
       "error": "#b3261e",
       "on-error": "#ffffff",
-      "focus": "#14539a"
+      "focus": "#075e53"
     }
   },
   "dark": {
@@ -52,10 +52,10 @@ export const themes = {
     "status": "provisional",
     "brandApproval": "pending",
     "colors": {
-      "primary": "#a9c7ff",
-      "on-primary": "#001c3a",
-      "primary-container": "#0f3d78",
-      "on-primary-container": "#d6e3ff",
+      "primary": "#94dfca",
+      "on-primary": "#143d32",
+      "primary-container": "#164b3c",
+      "on-primary-container": "#d9f0e8",
       "secondary": "#b3c6e0",
       "on-secondary": "#1e2c3d",
       "tertiary": "#7fd8c9",
@@ -67,7 +67,7 @@ export const themes = {
       "outline": "#8b949c",
       "error": "#ffb4ab",
       "on-error": "#690005",
-      "focus": "#a9c7ff"
+      "focus": "#94dfca"
     }
   }
 };
