@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "name": "Personal AI Systems design tokens",
+    "namespace": "pas",
+    "version": "0.1.0",
+    "status": "provisional",
+    "note": "Palette and typography are provisional v0 defaults, not approved branding. Only semantic roles are emitted as CSS custom properties; reference ramps stay internal to the token source."
+  },
+  "reference": {
+    "color": {
+      "neutral": {
+        "0": "#ffffff",
+        "4": "#fbfcfd",
+        "10": "#eef1f5",
+        "20": "#d8dee5",
+        "40": "#737b83",
+        "55": "#5a6169",
+        "70": "#333a41",
+        "85": "#191c1f",
+        "92": "#111417",
+        "96": "#1c2024"
+      },
+      "accent": {
+        "10": "#001c3a",
+        "20": "#0f3d78",
+        "30": "#14539a",
+        "60": "#a9c7ff",
+        "80": "#d6e3ff"
+      },
+      "cool": {
+        "20": "#1e2c3d",
+        "30": "#44546b",
+        "70": "#b3c6e0"
+      },
+      "deep": {
+        "20": "#00382f",
+        "30": "#0f5f55",
+        "60": "#7fd8c9"
+      },
+      "alert": {
+        "10": "#690005",
+        "30": "#b3261e",
+        "80": "#ffb4ab"
+      },
+      "quiet": {
+        "40": "#8b949c",
+        "60": "#a8b1ba"
+      }
+    },
+    "font": {
+      "family": {
+        "sans": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+        "mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
+      },
+      "weight": {
+        "regular": "400",
+        "medium": "500",
+        "strong": "600"
+      },
+      "size": {
+        "display": "2.5rem",
+        "heading-1": "2rem",
+        "heading-2": "1.5rem",
+        "heading-3": "1.25rem",
+        "body": "1rem",
+        "small": "0.875rem",
+        "label": "0.8125rem"
+      },
+      "leading": {
+        "display": "1.15",
+        "heading": "1.25",
+        "body": "1.6",
+        "small": "1.5",
+        "label": "1.4"
+      },
+      "tracking": {
+        "display": "-0.01em",
+        "heading": "0",
+        "body": "0",
+        "label": "0.02em"
+      }
+    },
+    "space": {
+      "0": "0",
+      "25": "0.25rem",
+      "50": "0.5rem",
+      "75": "0.75rem",
+      "100": "1rem",
+      "150": "1.5rem",
+      "200": "2rem",
+      "300": "3rem",
+      "400": "4rem",
+      "600": "6rem",
+      "800": "8rem"
+    },
+    "radius": {
+      "none": "0",
+      "xs": "2px",
+      "sm": "4px",
+      "md": "6px",
+      "lg": "8px",
+      "full": "9999px"
+    },
+    "border": {
+      "hairline": "1px",
+      "strong": "2px"
+    },
+    "motion": {
+      "fast": "120ms",
+      "base": "180ms",
+      "slow": "240ms",
+      "easing": "cubic-bezier(0.2, 0, 0.2, 1)"
+    },
+    "elevation": {
+      "none": "none",
+      "raised": "0 1px 2px rgba(15, 23, 32, 0.10), 0 2px 6px rgba(15, 23, 32, 0.08)",
+      "overlay": "0 2px 4px rgba(15, 23, 32, 0.12), 0 8px 24px rgba(15, 23, 32, 0.16)"
+    },
+    "breakpoint": {
+      "compact": "320px",
+      "narrow": "375px",
+      "medium": "768px",
+      "wide": "1440px"
+    },
+    "measure": {
+      "prose": "68ch",
+      "wide": "76rem"
+    }
+  },
+  "semantic": {
+    "font": {
+      "display": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.display}",
+        "weight": "{font.weight.strong}",
+        "leading": "{font.leading.display}",
+        "tracking": "{font.tracking.display}"
+      },
+      "heading-1": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.heading-1}",
+        "weight": "{font.weight.strong}",
+        "leading": "{font.leading.heading}",
+        "tracking": "{font.tracking.heading}"
+      },
+      "heading-2": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.heading-2}",
+        "weight": "{font.weight.strong}",
+        "leading": "{font.leading.heading}",
+        "tracking": "{font.tracking.heading}"
+      },
+      "heading-3": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.heading-3}",
+        "weight": "{font.weight.medium}",
+        "leading": "{font.leading.heading}",
+        "tracking": "{font.tracking.heading}"
+      },
+      "body": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.body}",
+        "weight": "{font.weight.regular}",
+        "leading": "{font.leading.body}",
+        "tracking": "{font.tracking.body}"
+      },
+      "small": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.small}",
+        "weight": "{font.weight.regular}",
+        "leading": "{font.leading.small}",
+        "tracking": "{font.tracking.body}"
+      },
+      "label": {
+        "family": "{font.family.sans}",
+        "size": "{font.size.label}",
+        "weight": "{font.weight.medium}",
+        "leading": "{font.leading.label}",
+        "tracking": "{font.tracking.label}"
+      },
+      "code": {
+        "family": "{font.family.mono}",
+        "size": "{font.size.small}",
+        "weight": "{font.weight.regular}",
+        "leading": "{font.leading.small}",
+        "tracking": "{font.tracking.body}"
+      }
+    },
+    "space": {
+      "inset-tight": "{space.50}",
+      "inset": "{space.100}",
+      "inset-loose": "{space.150}",
+      "stack-tight": "{space.50}",
+      "stack": "{space.100}",
+      "stack-loose": "{space.150}",
+      "section": "{space.400}",
+      "page": "{space.300}"
+    },
+    "size": {
+      "control": "2.75rem",
+      "control-compact": "2.25rem",
+      "icon": "1.25rem"
+    }
+  },
+  "requirements": {
+    "colorRoles": [
+      "primary",
+      "on-primary",
+      "primary-container",
+      "on-primary-container",
+      "secondary",
+      "on-secondary",
+      "tertiary",
+      "on-tertiary",
+      "surface",
+      "on-surface",
+      "surface-container",
+      "on-surface-muted",
+      "outline",
+      "error",
+      "on-error",
+      "focus"
+    ],
+    "themes": ["light", "dark"]
+  }
+}

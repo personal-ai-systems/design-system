@@ -1,0 +1,25 @@
+{
+  "name": "dark",
+  "label": "Dark",
+  "status": "provisional",
+  "brandApproval": "pending",
+  "note": "PROVISIONAL colour mapping. Not an approved brand palette.",
+  "colors": {
+    "primary": "#a9c7ff",
+    "on-primary": "#001c3a",
+    "primary-container": "#0f3d78",
+    "on-primary-container": "#d6e3ff",
+    "secondary": "#b3c6e0",
+    "on-secondary": "#1e2c3d",
+    "tertiary": "#7fd8c9",
+    "on-tertiary": "#00382f",
+    "surface": "#111417",
+    "on-surface": "#eef1f5",
+    "surface-container": "#1c2024",
+    "on-surface-muted": "#a8b1ba",
+    "outline": "#8b949c",
+    "error": "#ffb4ab",
+    "on-error": "#690005",
+    "focus": "#a9c7ff"
+  }
+}

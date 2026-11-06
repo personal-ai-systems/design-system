@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "name": "Personal AI Systems theme: light",
+    "theme": "light",
+    "label": "Light",
+    "version": "0.1.0",
+    "status": "provisional",
+    "brandApproval": "pending",
+    "note": "PROVISIONAL. This mapping of colour roles onto the reference ramps is a working default, not an approved brand palette. Replacing the palette means editing this file and provisional-dark.tokens.json only; components and consumers never change."
+  },
+  "color": {
+    "primary": { "$type": "color", "$value": "{color.reference.accent.30}" },
+    "on-primary": { "$type": "color", "$value": "{color.reference.neutral.0}" },
+    "primary-container": { "$type": "color", "$value": "{color.reference.accent.80}" },
+    "on-primary-container": { "$type": "color", "$value": "{color.reference.accent.10}" },
+    "secondary": { "$type": "color", "$value": "{color.reference.cool.30}" },
+    "on-secondary": { "$type": "color", "$value": "{color.reference.neutral.0}" },
+    "tertiary": { "$type": "color", "$value": "{color.reference.deep.30}" },
+    "on-tertiary": { "$type": "color", "$value": "{color.reference.neutral.0}" },
+    "surface": { "$type": "color", "$value": "{color.reference.neutral.4}" },
+    "on-surface": { "$type": "color", "$value": "{color.reference.neutral.85}" },
+    "surface-container": { "$type": "color", "$value": "{color.reference.neutral.10}" },
+    "on-surface-muted": { "$type": "color", "$value": "{color.reference.neutral.55}" },
+    "outline": { "$type": "color", "$value": "{color.reference.neutral.40}" },
+    "error": { "$type": "color", "$value": "{color.reference.alert.30}" },
+    "on-error": { "$type": "color", "$value": "{color.reference.neutral.0}" },
+    "focus": { "$type": "color", "$value": "{color.reference.accent.30}" }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "@personal-ai-systems/design-system",
+  "version": "0.1.0",
+  "description": "Personal AI Systems design system: one typed token source with separate web and native adapters. Provisional palette and typefaces, brand approval pending.",
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "css-variables",
+    "react-native"
+  ],
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens": "./dist/tokens.json",
+    "./tokens/core": "./tokens/core.tokens.json",
+    "./web/variables.css": "./dist/web/variables.css",
+    "./web/base.css": "./adapters/web/base.css",
+    "./web/components.css": "./adapters/web/components.css",
+    "./web/mapping.json": "./adapters/web/mapping.json",
+    "./native": {
+      "types": "./dist/native/theme.d.ts",
+      "default": "./dist/native/theme.js"
+    },
+    "./native/mapping.json": "./adapters/native/mapping.json",
+    "./themes/*": "./dist/themes/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "adapters",
+    "tokens",
+    "themes",
+    "README.md"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm run validate && npm test"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "notes": {
+    "notPublished": "Local only. Publishing to npm, a public GitHub remote and a legal licence choice are open decisions, documented in README.md. `private: true` blocks an accidental publish.",
+    "status": "0.1.x is provisional: brand palette and typeface are not approved. `UNLICENSED` is a placeholder, not a licence choice."
+  }
+}

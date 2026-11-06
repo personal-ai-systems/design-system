@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "platform": "native",
+    "target": "React Native (iOS + Android) style objects",
+    "version": "0.1.0",
+    "scope": "Token and theme support only. This is NOT a mobile component library: no components, no gesture handling, no SwiftUI or Compose adapter, and no device QA has been performed.",
+    "conversions": {
+      "dimension": "Core px is a logical reference unit. The native adapter emits the bare number as dp/pt (React Native treats numeric dims as density-independent).",
+      "fontSize": "Logical size in dp/pt. Runtime OS text scaling still applies through allowFontScaling (default true); a numeric token cannot promise identical rendered size across devices.",
+      "lineHeight": "Computed as round(fontSize * ratio) because React Native wants a length, not a ratio.",
+      "fontWeight": "Emitted as a string ('400' | '500' | '600') because that is what React Native accepts.",
+      "letterSpacing": "Numeric dp, currently 0.",
+      "duration": "Bare milliseconds number.",
+      "cubicBezier": "Emitted as {x1,y1,x2,y2}. The consumer must call Easing.bezier(x1,y1,x2,y2); the adapter does not import react-native.",
+      "shadow": "Structured layers are kept. React Native has shadowColor/shadowOffset{width,height}/shadowOpacity/shadowRadius on iOS and elevation on Android. CSS spread has no lossless equivalent, so spread is reported in unsupportedFields rather than silently dropped. Elevation approximation is NOT pixel parity."
+    },
+    "unsupportedFields": [
+      "shadow.spread (no React Native equivalent)",
+      "multiple simultaneous shadow layers (React Native applies one shadow per view; nest views or choose one layer)",
+      "border width shorthand (consume border.hairline/strong per side)"
+    ],
+    "futureAdapters": [
+      "SwiftUI (Color/TextStyle mapping) — not implemented",
+      "Jetpack Compose (Color/Typography mapping) — not implemented"
+    ]
+  },
+  "fontFamily": {
+    "system-sans": {
+      "strategy": "platform-default",
+      "fontFamily": null,
+      "note": "Leave fontFamily unset so the platform picks its own UI font: iOS San Francisco, Android Roboto. A comma-separated CSS stack must never appear here."
+    },
+    "system-mono": {
+      "strategy": "explicit-per-platform",
+      "byPlatform": { "ios": "Menlo", "android": "monospace" },
+      "note": "React Native has no cross-platform default mono family, so the consumer chooses with Platform.select. The adapter exports this map rather than importing Platform."
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "name": "Theme registry",
+    "version": "0.1.0",
+    "status": "provisional",
+    "brandApproval": "pending",
+    "note": "Which theme files exist, which one is the default, and the contrast pairs this system actually claims. Adding an approved brand theme means a new file plus an entry here; nothing else changes.",
+    "approvalPending": [
+      "Brand colour palette (all roles, both themes)",
+      "Brand typeface and its licence/loading strategy",
+      "Whether letter spacing stays 0 after brand approval"
+    ]
+  },
+  "themes": [
+    { "name": "light", "label": "Light", "file": "provisional-light.tokens.json", "default": true },
+    { "name": "dark", "label": "Dark", "file": "provisional-dark.tokens.json", "default": false }
+  ],
+  "contrast": {
+    "note": "Minimum ratios this system claims and tests. Text pairs use the WCAG 2.1 AA 4.5:1 threshold; the focus ring and outline pairs are non-text boundaries held to 3:1. Passing these token pairs is not a complete WCAG audit of a rendered page.",
+    "pairs": [
+      { "theme": "light", "foreground": "on-primary", "background": "primary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-primary-container", "background": "primary-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-secondary", "background": "secondary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-tertiary", "background": "tertiary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface", "background": "surface", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface-muted", "background": "surface", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface", "background": "surface-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface-muted", "background": "surface-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-error", "background": "error", "min": 4.5 },
+      { "theme": "light", "foreground": "focus", "background": "surface", "min": 3 },
+      { "theme": "light", "foreground": "outline", "background": "surface", "min": 3 },
+      { "theme": "dark", "foreground": "on-primary", "background": "primary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-primary-container", "background": "primary-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-secondary", "background": "secondary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-tertiary", "background": "tertiary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface", "background": "surface", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface-muted", "background": "surface", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface", "background": "surface-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface-muted", "background": "surface-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-error", "background": "error", "min": 4.5 },
+      { "theme": "dark", "foreground": "focus", "background": "surface", "min": 3 },
+      { "theme": "dark", "foreground": "outline", "background": "surface", "min": 3 }
+    ]
+  }
+}

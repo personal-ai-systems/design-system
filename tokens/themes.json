@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "name": "Personal AI Systems themes",
+    "namespace": "pas",
+    "version": "0.1.0",
+    "status": "provisional",
+    "note": "Each theme maps every public color role to a reference value. Replacing a palette means editing only this file and re-running scripts/build-tokens.mjs; components and pages reference roles and must not be edited."
+  },
+  "themes": {
+    "light": {
+      "label": "Light",
+      "color": {
+        "primary": "{color.accent.30}",
+        "on-primary": "{color.neutral.0}",
+        "primary-container": "{color.accent.80}",
+        "on-primary-container": "{color.accent.10}",
+        "secondary": "{color.cool.30}",
+        "on-secondary": "{color.neutral.0}",
+        "tertiary": "{color.deep.30}",
+        "on-tertiary": "{color.neutral.0}",
+        "surface": "{color.neutral.4}",
+        "on-surface": "{color.neutral.85}",
+        "surface-container": "{color.neutral.10}",
+        "on-surface-muted": "{color.neutral.55}",
+        "outline": "{color.neutral.40}",
+        "error": "{color.alert.30}",
+        "on-error": "{color.neutral.0}",
+        "focus": "{color.accent.30}"
+      }
+    },
+    "dark": {
+      "label": "Dark",
+      "color": {
+        "primary": "{color.accent.60}",
+        "on-primary": "{color.accent.10}",
+        "primary-container": "{color.accent.20}",
+        "on-primary-container": "{color.accent.80}",
+        "secondary": "{color.cool.70}",
+        "on-secondary": "{color.cool.20}",
+        "tertiary": "{color.deep.60}",
+        "on-tertiary": "{color.deep.20}",
+        "surface": "{color.neutral.92}",
+        "on-surface": "{color.neutral.10}",
+        "surface-container": "{color.neutral.96}",
+        "on-surface-muted": "{color.quiet.60}",
+        "outline": "{color.quiet.40}",
+        "error": "{color.alert.80}",
+        "on-error": "{color.alert.10}",
+        "focus": "{color.accent.60}"
+      }
+    }
+  },
+  "contrast": {
+    "note": "Minimum ratios this system claims. Text pairs are measured against the WCAG 2.1 AA thresholds; the outline pair is a non-text boundary and is only held to 3:1.",
+    "pairs": [
+      { "theme": "light", "foreground": "on-primary", "background": "primary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-primary-container", "background": "primary-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-secondary", "background": "secondary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-tertiary", "background": "tertiary", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface", "background": "surface", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface-muted", "background": "surface", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface", "background": "surface-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface-muted", "background": "surface-container", "min": 4.5 },
+      { "theme": "light", "foreground": "on-error", "background": "error", "min": 4.5 },
+      { "theme": "light", "foreground": "focus", "background": "surface", "min": 3 },
+      { "theme": "light", "foreground": "outline", "background": "surface", "min": 3 },
+      { "theme": "dark", "foreground": "on-primary", "background": "primary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-primary-container", "background": "primary-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-secondary", "background": "secondary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-tertiary", "background": "tertiary", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface", "background": "surface", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface-muted", "background": "surface", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface", "background": "surface-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface-muted", "background": "surface-container", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-error", "background": "error", "min": 4.5 },
+      { "theme": "dark", "foreground": "focus", "background": "surface", "min": 3 },
+      { "theme": "dark", "foreground": "outline", "background": "surface", "min": 3 }
+    ]
+  }
+}

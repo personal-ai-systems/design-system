@@ -1,0 +1,182 @@
+/*
+ * Personal AI Systems design system — web variables
+ * version 0.1.0 (provisional, brand approval pending)
+ *
+ * GENERATED FILE — DO NOT EDIT.
+ * Source: tokens/core.tokens.json + themes/*.tokens.json + adapters/web/mapping.json
+ * Regenerate: node scripts/build.mjs
+ *
+ * This file is variables only. It resets nothing and styles nothing:
+ * base.css and components.css are separate opt-in imports.
+ */
+
+:root {
+  /* typography roles */
+  --pas-font-display-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-display-size: 2.5rem;
+  --pas-font-display-weight: 600;
+  --pas-font-display-leading: 1.15;
+  --pas-font-display-tracking: 0;
+  --pas-font-heading-1-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-heading-1-size: 2rem;
+  --pas-font-heading-1-weight: 600;
+  --pas-font-heading-1-leading: 1.25;
+  --pas-font-heading-1-tracking: 0;
+  --pas-font-heading-2-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-heading-2-size: 1.5rem;
+  --pas-font-heading-2-weight: 600;
+  --pas-font-heading-2-leading: 1.25;
+  --pas-font-heading-2-tracking: 0;
+  --pas-font-heading-3-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-heading-3-size: 1.25rem;
+  --pas-font-heading-3-weight: 500;
+  --pas-font-heading-3-leading: 1.25;
+  --pas-font-heading-3-tracking: 0;
+  --pas-font-body-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-body-size: 1rem;
+  --pas-font-body-weight: 400;
+  --pas-font-body-leading: 1.6;
+  --pas-font-body-tracking: 0;
+  --pas-font-small-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-small-size: 0.875rem;
+  --pas-font-small-weight: 400;
+  --pas-font-small-leading: 1.5;
+  --pas-font-small-tracking: 0;
+  --pas-font-label-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-label-size: 0.8125rem;
+  --pas-font-label-weight: 500;
+  --pas-font-label-leading: 1.4;
+  --pas-font-label-tracking: 0;
+  --pas-font-code-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  --pas-font-code-size: 0.875rem;
+  --pas-font-code-weight: 400;
+  --pas-font-code-leading: 1.5;
+  --pas-font-code-tracking: 0;
+
+  /* spacing primitives */
+  --pas-space-0: 0;
+  --pas-space-25: 0.25rem;
+  --pas-space-50: 0.5rem;
+  --pas-space-75: 0.75rem;
+  --pas-space-100: 1rem;
+  --pas-space-150: 1.5rem;
+  --pas-space-200: 2rem;
+  --pas-space-300: 3rem;
+  --pas-space-400: 4rem;
+  --pas-space-600: 6rem;
+  --pas-space-800: 8rem;
+
+  /* spacing roles */
+  --pas-space-inset-tight: 0.5rem;
+  --pas-space-inset: 1rem;
+  --pas-space-inset-loose: 1.5rem;
+  --pas-space-stack-tight: 0.5rem;
+  --pas-space-stack: 1rem;
+  --pas-space-stack-loose: 1.5rem;
+  --pas-space-section: 4rem;
+  --pas-space-page: 3rem;
+
+  /* geometry */
+  --pas-radius-full: 9999px;
+  --pas-radius-lg: 8px;
+  --pas-radius-md: 6px;
+  --pas-radius-none: 0;
+  --pas-radius-sm: 4px;
+  --pas-radius-xs: 2px;
+  --pas-border-hairline: 1px;
+  --pas-border-strong: 2px;
+  --pas-size-control: 2.75rem;
+  --pas-size-control-compact: 2.25rem;
+  --pas-size-icon: 1.25rem;
+
+  /* opacity */
+  --pas-opacity-disabled: 0.38;
+  --pas-opacity-muted: 0.6;
+
+  /* motion */
+  --pas-motion-base: 180ms;
+  --pas-motion-fast: 120ms;
+  --pas-motion-slow: 240ms;
+  --pas-motion-easing: cubic-bezier(0.2, 0, 0.2, 1);
+
+  /* elevation */
+  --pas-elevation-none: none;
+  --pas-elevation-overlay: 0 2px 4px 0 #0f17201f, 0 8px 24px 0 #0f172029;
+  --pas-elevation-raised: 0 1px 2px 0 #0f17201a, 0 2px 6px 0 #0f172014;
+
+  /* web-only measures: no native equivalent, so they live in the mapping */
+  --pas-measure-prose: 68ch;
+  --pas-measure-wide: 76rem;
+}
+
+/* Light theme — provisional, brand approval pending */
+:root,
+[data-pas-theme="light"] {
+  --pas-color-primary: #14539a;
+  --pas-color-on-primary: #ffffff;
+  --pas-color-primary-container: #d6e3ff;
+  --pas-color-on-primary-container: #001c3a;
+  --pas-color-secondary: #44546b;
+  --pas-color-on-secondary: #ffffff;
+  --pas-color-tertiary: #0f5f55;
+  --pas-color-on-tertiary: #ffffff;
+  --pas-color-surface: #fbfcfd;
+  --pas-color-on-surface: #191c1f;
+  --pas-color-surface-container: #eef1f5;
+  --pas-color-on-surface-muted: #5a6169;
+  --pas-color-outline: #737b83;
+  --pas-color-error: #b3261e;
+  --pas-color-on-error: #ffffff;
+  --pas-color-focus: #14539a;
+}
+
+/* Dark theme — provisional, brand approval pending */
+[data-pas-theme="dark"] {
+  --pas-color-primary: #a9c7ff;
+  --pas-color-on-primary: #001c3a;
+  --pas-color-primary-container: #0f3d78;
+  --pas-color-on-primary-container: #d6e3ff;
+  --pas-color-secondary: #b3c6e0;
+  --pas-color-on-secondary: #1e2c3d;
+  --pas-color-tertiary: #7fd8c9;
+  --pas-color-on-tertiary: #00382f;
+  --pas-color-surface: #111417;
+  --pas-color-on-surface: #eef1f5;
+  --pas-color-surface-container: #1c2024;
+  --pas-color-on-surface-muted: #a8b1ba;
+  --pas-color-outline: #8b949c;
+  --pas-color-error: #ffb4ab;
+  --pas-color-on-error: #690005;
+  --pas-color-focus: #a9c7ff;
+}
+
+/* Follow the operating system when no explicit theme is set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-pas-theme]) {
+    --pas-color-primary: #a9c7ff;
+    --pas-color-on-primary: #001c3a;
+    --pas-color-primary-container: #0f3d78;
+    --pas-color-on-primary-container: #d6e3ff;
+    --pas-color-secondary: #b3c6e0;
+    --pas-color-on-secondary: #1e2c3d;
+    --pas-color-tertiary: #7fd8c9;
+    --pas-color-on-tertiary: #00382f;
+    --pas-color-surface: #111417;
+    --pas-color-on-surface: #eef1f5;
+    --pas-color-surface-container: #1c2024;
+    --pas-color-on-surface-muted: #a8b1ba;
+    --pas-color-outline: #8b949c;
+    --pas-color-error: #ffb4ab;
+    --pas-color-on-error: #690005;
+    --pas-color-focus: #a9c7ff;
+  }
+}
+
+/* Honour a reduced-motion preference without changing any consumer markup. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --pas-motion-base: 1ms;
+    --pas-motion-fast: 1ms;
+    --pas-motion-slow: 1ms;
+  }
+}

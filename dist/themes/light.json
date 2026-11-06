@@ -1,0 +1,25 @@
+{
+  "name": "light",
+  "label": "Light",
+  "status": "provisional",
+  "brandApproval": "pending",
+  "note": "PROVISIONAL colour mapping. Not an approved brand palette.",
+  "colors": {
+    "primary": "#14539a",
+    "on-primary": "#ffffff",
+    "primary-container": "#d6e3ff",
+    "on-primary-container": "#001c3a",
+    "secondary": "#44546b",
+    "on-secondary": "#ffffff",
+    "tertiary": "#0f5f55",
+    "on-tertiary": "#ffffff",
+    "surface": "#fbfcfd",
+    "on-surface": "#191c1f",
+    "surface-container": "#eef1f5",
+    "on-surface-muted": "#5a6169",
+    "outline": "#737b83",
+    "error": "#b3261e",
+    "on-error": "#ffffff",
+    "focus": "#14539a"
+  }
+}

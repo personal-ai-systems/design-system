@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web consumer example — pinned design system</title>
+<!--
+  Pinned integration example for a website or dashboard.
+
+  In a real project the three files below come from an installed, exact-pinned
+  dependency, not from a relative path:
+
+    "dependencies": { "@personal-ai-systems/design-system": "0.1.0" }
+
+    <link rel="stylesheet" href="/node_modules/@personal-ai-systems/design-system/dist/web/variables.css">
+    <link rel="stylesheet" href="/node_modules/@personal-ai-systems/design-system/adapters/web/base.css">
+    <link rel="stylesheet" href="/node_modules/@personal-ai-systems/design-system/adapters/web/components.css">
+
+  The relative paths here point at this repository's own build output so the
+  file renders correctly when opened directly from disk.
+-->
+<link rel="stylesheet" href="../../dist/web/variables.css">
+<link rel="stylesheet" href="../../adapters/web/base.css">
+<link rel="stylesheet" href="../../adapters/web/components.css">
+<style>
+  /* The only local CSS a consumer should need: layout glue. No colours, no
+     type scale, no radii — those come from the tokens. */
+  .consumer-shell { max-width: var(--pas-measure-wide); margin-inline: auto; padding: var(--pas-space-page); }
+</style>
+</head>
+<body>
+<div class="consumer-shell">
+
+  <h1>Pinned web consumer</h1>
+  <p>This page imports the design system the way a website or dashboard would: a pinned
+  package version, the variables file, and the optional default styles. Every colour, size,
+  radius and duration below resolves from a token, not from this file.</p>
+
+  <h2>What a consumer may assume</h2>
+  <ul>
+    <li>Loading <code>variables.css</code> alone changes nothing visually; it only defines custom properties.</li>
+    <li><code>base.css</code> and <code>components.css</code> are optional and independent of each other.</li>
+    <li>Theme switching is an attribute: <code>data-pas-theme="dark"</code>.</li>
+    <li>Values are provisional in 0.1.x, so the dependency is pinned to an exact version.</li>
+  </ul>
+
+  <h2>Components</h2>
+  <p>
+    <button class="pas-button pas-button--primary" type="button">Primary action</button>
+    <button class="pas-button pas-button--secondary" type="button">Secondary action</button>
+  </p>
+
+  <div class="pas-card">
+    <h3 class="pas-card__title">Card from the token layer</h3>
+    <p class="pas-card__meta">No local colour declarations</p>
+    <p>If the brand palette changes, this card changes with it and this file is untouched.</p>
+  </div>
+
+  <h2>Dark subtree</h2>
+  <p>The block below is themed by one attribute on its container, not by a stylesheet swap.</p>
+  <div data-pas-theme="dark" class="pas-surface-container" style="padding: var(--pas-space-inset); border-radius: var(--pas-radius-surface);">
+    <h3>Dark surface</h3>
+    <p>Same markup, same classes, dark role values.</p>
+    <p><a href="#top">A link inside the dark subtree</a></p>
+  </div>
+
+</div>
+</body>
+</html>

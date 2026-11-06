@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "platform": "web",
+    "version": "0.1.0",
+    "note": "Everything here is web-only and deliberately absent from tokens/core.tokens.json: CSS font stacks, breakpoints in px, ch/rem measures, and the serialisation of structured shadows to box-shadow. A native consumer never reads this file."
+  },
+  "rootFontSizePx": 16,
+  "unitPolicy": {
+    "note": "Core dimensions are logical px. Text-relative groups become rem so a user's root font size still scales them; geometry stays in px because a hairline or a corner radius should not grow with text size.",
+    "default": "rem",
+    "groups": {
+      "border": "px",
+      "radius": "px"
+    }
+  },
+  "fontFamily": {
+    "system-sans": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "system-mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
+  },
+  "breakpoint": {
+    "compact": { "value": 320, "unit": "px" },
+    "narrow": { "value": 375, "unit": "px" },
+    "medium": { "value": 768, "unit": "px" },
+    "wide": { "value": 1440, "unit": "px" }
+  },
+  "measure": {
+    "prose": "68ch",
+    "wide": "76rem"
+  },
+  "contrastPolicy": {
+    "focusRingWidthPx": 2,
+    "focusRingOffsetPx": 2
+  }
+}

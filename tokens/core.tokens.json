@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "name": "Personal AI Systems design tokens",
+    "namespace": "pas",
+    "version": "0.1.0",
+    "status": "provisional",
+    "format": "DTCG 2025.10 subset",
+    "supportedTypes": [
+      "color",
+      "dimension",
+      "string",
+      "fontWeight",
+      "number",
+      "duration",
+      "cubicBezier",
+      "shadow"
+    ],
+    "referenceUnit": "px",
+    "letterSpacingPolicy": 0,
+    "note": "ONE canonical platform-neutral source. Reference values feed semantic roles; each platform adapter converts them. Dimensions are logical reference units recorded in px, never CSS expressions: the web adapter converts px/16 to rem, the native adapter emits the number as dp/pt. Brand palette and typefaces live in themes/ and are provisional, not approved. Letter spacing is 0 in this version by decision."
+  },
+  "color": {
+    "reference": {
+      "$description": "Internal ramps. Never published as variables; themes map roles onto them.",
+      "neutral": {
+        "0": { "$type": "color", "$value": "#ffffff" },
+        "4": { "$type": "color", "$value": "#fbfcfd" },
+        "10": { "$type": "color", "$value": "#eef1f5" },
+        "20": { "$type": "color", "$value": "#d8dee5" },
+        "40": { "$type": "color", "$value": "#737b83" },
+        "55": { "$type": "color", "$value": "#5a6169" },
+        "70": { "$type": "color", "$value": "#333a41" },
+        "85": { "$type": "color", "$value": "#191c1f" },
+        "92": { "$type": "color", "$value": "#111417" },
+        "96": { "$type": "color", "$value": "#1c2024" }
+      },
+      "accent": {
+        "10": { "$type": "color", "$value": "#001c3a" },
+        "20": { "$type": "color", "$value": "#0f3d78" },
+        "30": { "$type": "color", "$value": "#14539a" },
+        "60": { "$type": "color", "$value": "#a9c7ff" },
+        "80": { "$type": "color", "$value": "#d6e3ff" }
+      },
+      "cool": {
+        "20": { "$type": "color", "$value": "#1e2c3d" },
+        "30": { "$type": "color", "$value": "#44546b" },
+        "70": { "$type": "color", "$value": "#b3c6e0" }
+      },
+      "deep": {
+        "20": { "$type": "color", "$value": "#00382f" },
+        "30": { "$type": "color", "$value": "#0f5f55" },
+        "60": { "$type": "color", "$value": "#7fd8c9" }
+      },
+      "alert": {
+        "10": { "$type": "color", "$value": "#690005" },
+        "30": { "$type": "color", "$value": "#b3261e" },
+        "80": { "$type": "color", "$value": "#ffb4ab" }
+      },
+      "quiet": {
+        "40": { "$type": "color", "$value": "#8b949c" },
+        "60": { "$type": "color", "$value": "#a8b1ba" }
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "$description": "Abstract family keys, not CSS stacks. adapters/web/mapping.json holds the CSS stack per key; adapters/native/mapping.json holds the platform behaviour. A branded typeface needs its own mapped key plus retained local font assets.",
+      "sans": { "$type": "string", "$value": "system-sans" },
+      "mono": { "$type": "string", "$value": "system-mono" }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium": { "$type": "fontWeight", "$value": 500 },
+      "strong": { "$type": "fontWeight", "$value": 600 }
+    },
+    "size": {
+      "display": { "$type": "dimension", "$value": { "value": 40, "unit": "px" } },
+      "heading-1": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+      "heading-2": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
+      "heading-3": { "$type": "dimension", "$value": { "value": 20, "unit": "px" } },
+      "body": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+      "small": { "$type": "dimension", "$value": { "value": 14, "unit": "px" } },
+      "label": { "$type": "dimension", "$value": { "value": 13, "unit": "px" } }
+    },
+    "leading": {
+      "display": { "$type": "number", "$value": 1.15 },
+      "heading": { "$type": "number", "$value": 1.25 },
+      "body": { "$type": "number", "$value": 1.6 },
+      "small": { "$type": "number", "$value": 1.5 },
+      "label": { "$type": "number", "$value": 1.4 }
+    },
+    "tracking": {
+      "$description": "Letter spacing is 0 by decision for this version. The value stays a typed dimension so a later decision changes data, not components.",
+      "display": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+      "heading": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+      "body": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+      "label": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } }
+    }
+  },
+  "space": {
+    "0": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+    "25": { "$type": "dimension", "$value": { "value": 4, "unit": "px" } },
+    "50": { "$type": "dimension", "$value": { "value": 8, "unit": "px" } },
+    "75": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+    "100": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+    "150": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
+    "200": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+    "300": { "$type": "dimension", "$value": { "value": 48, "unit": "px" } },
+    "400": { "$type": "dimension", "$value": { "value": 64, "unit": "px" } },
+    "600": { "$type": "dimension", "$value": { "value": 96, "unit": "px" } },
+    "800": { "$type": "dimension", "$value": { "value": 128, "unit": "px" } }
+  },
+  "radius": {
+    "none": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+    "xs": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } },
+    "sm": { "$type": "dimension", "$value": { "value": 4, "unit": "px" } },
+    "md": { "$type": "dimension", "$value": { "value": 6, "unit": "px" } },
+    "lg": { "$type": "dimension", "$value": { "value": 8, "unit": "px" } },
+    "full": { "$type": "dimension", "$value": { "value": 9999, "unit": "px" } }
+  },
+  "border": {
+    "hairline": { "$type": "dimension", "$value": { "value": 1, "unit": "px" } },
+    "strong": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } }
+  },
+  "size": {
+    "control": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "control-compact": { "$type": "dimension", "$value": { "value": 36, "unit": "px" } },
+    "icon": { "$type": "dimension", "$value": { "value": 20, "unit": "px" } }
+  },
+  "opacity": {
+    "muted": { "$type": "number", "$value": 0.6 },
+    "disabled": { "$type": "number", "$value": 0.38 }
+  },
+  "motion": {
+    "duration": {
+      "fast": { "$type": "duration", "$value": { "value": 120, "unit": "ms" } },
+      "base": { "$type": "duration", "$value": { "value": 180, "unit": "ms" } },
+      "slow": { "$type": "duration", "$value": { "value": 240, "unit": "ms" } }
+    },
+    "easing": {
+      "standard": { "$type": "cubicBezier", "$value": [0.2, 0, 0.2, 1] }
+    }
+  },
+  "elevation": {
+    "$description": "Structured shadows: colour, offset, blur, spread. The web adapter serialises to box-shadow; the native adapter keeps the structure and documents the field mapping, because CSS spread has no lossless React Native equivalent.",
+    "none": { "$type": "shadow", "$value": [] },
+    "raised": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "#0f17201a", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 1, "unit": "px" }, "blur": { "value": 2, "unit": "px" }, "spread": { "value": 0, "unit": "px" } },
+        { "color": "#0f172014", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 2, "unit": "px" }, "blur": { "value": 6, "unit": "px" }, "spread": { "value": 0, "unit": "px" } }
+      ]
+    },
+    "overlay": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "#0f17201f", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 2, "unit": "px" }, "blur": { "value": 4, "unit": "px" }, "spread": { "value": 0, "unit": "px" } },
+        { "color": "#0f172029", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 8, "unit": "px" }, "blur": { "value": 24, "unit": "px" }, "spread": { "value": 0, "unit": "px" } }
+      ]
+    }
+  },
+  "semantic": {
+    "$description": "Platform-neutral roles. Components consume these, never the primitives above and never a theme value directly.",
+    "typography": {
+      "display": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.display}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.strong}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.display}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.display}" }
+      },
+      "heading-1": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.heading-1}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.strong}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.heading}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.heading}" }
+      },
+      "heading-2": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.heading-2}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.strong}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.heading}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.heading}" }
+      },
+      "heading-3": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.heading-3}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.medium}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.heading}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.heading}" }
+      },
+      "body": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.body}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.regular}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.body}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.body}" }
+      },
+      "small": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.small}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.regular}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.small}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.body}" }
+      },
+      "label": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.label}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.medium}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.label}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.label}" }
+      },
+      "code": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.mono}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.small}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.regular}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.small}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.body}" }
+      }
+    },
+    "space": {
+      "inset-tight": { "$type": "dimension", "$value": "{space.50}" },
+      "inset": { "$type": "dimension", "$value": "{space.100}" },
+      "inset-loose": { "$type": "dimension", "$value": "{space.150}" },
+      "stack-tight": { "$type": "dimension", "$value": "{space.50}" },
+      "stack": { "$type": "dimension", "$value": "{space.100}" },
+      "stack-loose": { "$type": "dimension", "$value": "{space.150}" },
+      "section": { "$type": "dimension", "$value": "{space.400}" },
+      "page": { "$type": "dimension", "$value": "{space.300}" }
+    },
+    "radius": {
+      "control": { "$type": "dimension", "$value": "{radius.md}" },
+      "surface": { "$type": "dimension", "$value": "{radius.lg}" },
+      "pill": { "$type": "dimension", "$value": "{radius.full}" }
+    }
+  },
+  "requirements": {
+    "colorRoles": [
+      "primary",
+      "on-primary",
+      "primary-container",
+      "on-primary-container",
+      "secondary",
+      "on-secondary",
+      "tertiary",
+      "on-tertiary",
+      "surface",
+      "on-surface",
+      "surface-container",
+      "on-surface-muted",
+      "outline",
+      "error",
+      "on-error",
+      "focus"
+    ],
+    "typographyRoles": [
+      "display",
+      "heading-1",
+      "heading-2",
+      "heading-3",
+      "body",
+      "small",
+      "label",
+      "code"
+    ],
+    "spaceRoles": [
+      "inset-tight",
+      "inset",
+      "inset-loose",
+      "stack-tight",
+      "stack",
+      "stack-loose",
+      "section",
+      "page"
+    ]
+  }
+}

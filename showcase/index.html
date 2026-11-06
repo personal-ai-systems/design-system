@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal AI Systems design system — v0.1.0 showcase</title>
+<meta name="description" content="Static showcase of the Personal AI Systems design tokens and v0 components.">
+<link rel="stylesheet" href="../dist/web/variables.css">
+<link rel="stylesheet" href="../adapters/web/base.css">
+<link rel="stylesheet" href="../adapters/web/components.css">
+<link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+<a class="pas-skip-link" href="#main">Skip to content</a>
+
+<header class="show-header pas-surface-container">
+  <div class="pas-container show-header__inner">
+    <div>
+      <p class="show-eyebrow">Personal AI Systems</p>
+      <h1 class="show-title">Design system</h1>
+      <p class="show-subtitle">Tokens, components and states — version 0.1.0. Palette and typefaces are provisional and awaiting brand approval.</p>
+    </div>
+    <div class="show-theme">
+      <label class="pas-field__label" for="theme">Theme</label>
+      <select class="pas-select" id="theme" name="theme">
+        <option value="auto" selected>Match system</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <p class="pas-field__help" id="theme-help">Switching themes changes tokens only; no markup or class changes.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="pas-container show-main">
+
+  <section class="pas-section show-section" aria-labelledby="colors">
+    <h2 id="colors">Colour roles</h2>
+    <p>Every public colour is a role. Components reference the role, so a palette change is an edit to <code>themes/provisional-light.tokens.json</code> (and its dark pair) plus a rebuild — never a component change.</p>
+    <ul class="show-swatches">
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-primary); color: var(--pas-color-on-primary);">Aa</span>
+        <span class="show-swatch__name">primary</span>
+        <code class="show-swatch__value" data-role="primary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-primary); color: var(--pas-color-primary);">Aa</span>
+        <span class="show-swatch__name">on-primary</span>
+        <code class="show-swatch__value" data-role="on-primary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-primary-container); color: var(--pas-color-on-primary-container);">Aa</span>
+        <span class="show-swatch__name">primary-container</span>
+        <code class="show-swatch__value" data-role="primary-container">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-primary-container); color: var(--pas-color-primary-container);">Aa</span>
+        <span class="show-swatch__name">on-primary-container</span>
+        <code class="show-swatch__value" data-role="on-primary-container">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-secondary); color: var(--pas-color-on-secondary);">Aa</span>
+        <span class="show-swatch__name">secondary</span>
+        <code class="show-swatch__value" data-role="secondary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-secondary); color: var(--pas-color-secondary);">Aa</span>
+        <span class="show-swatch__name">on-secondary</span>
+        <code class="show-swatch__value" data-role="on-secondary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-tertiary); color: var(--pas-color-on-tertiary);">Aa</span>
+        <span class="show-swatch__name">tertiary</span>
+        <code class="show-swatch__value" data-role="tertiary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-tertiary); color: var(--pas-color-tertiary);">Aa</span>
+        <span class="show-swatch__name">on-tertiary</span>
+        <code class="show-swatch__value" data-role="on-tertiary">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-surface); color: var(--pas-color-on-surface);">Aa</span>
+        <span class="show-swatch__name">surface</span>
+        <code class="show-swatch__value" data-role="surface">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-surface); color: var(--pas-color-surface);">Aa</span>
+        <span class="show-swatch__name">on-surface</span>
+        <code class="show-swatch__value" data-role="on-surface">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-surface-container); color: var(--pas-color-on-surface);">Aa</span>
+        <span class="show-swatch__name">surface-container</span>
+        <code class="show-swatch__value" data-role="surface-container">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-surface-muted); color: var(--pas-color-surface);">Aa</span>
+        <span class="show-swatch__name">on-surface-muted</span>
+        <code class="show-swatch__value" data-role="on-surface-muted">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-outline); color: var(--pas-color-surface);">Aa</span>
+        <span class="show-swatch__name">outline</span>
+        <code class="show-swatch__value" data-role="outline">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-error); color: var(--pas-color-on-error);">Aa</span>
+        <span class="show-swatch__name">error</span>
+        <code class="show-swatch__value" data-role="error">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip" style="background-color: var(--pas-color-on-error); color: var(--pas-color-error);">Aa</span>
+        <span class="show-swatch__name">on-error</span>
+        <code class="show-swatch__value" data-role="on-error">—</code>
+      </li>
+      <li class="show-swatch">
+        <span class="show-swatch__chip show-swatch__chip--focus" style="background-color: var(--pas-color-focus); color: var(--pas-color-surface);">Aa</span>
+        <span class="show-swatch__name">focus</span>
+        <code class="show-swatch__value" data-role="focus">—</code>
+      </li>
+    </ul>
+    <p class="pas-field__help">Swatch values are read from the live custom properties for the active theme, so they change when you switch theme.</p>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="type">
+    <h2 id="type">Typography</h2>
+    <div class="show-type-sample">
+      <p class="show-type-sample__meta">display · 2.5rem / 1.15 / 600</p>
+      <p class="show-display">Local-first software</p>
+      <p class="show-type-sample__meta">heading-1 · 2rem / 1.25 / 600</p>
+      <p class="show-h1">Files you can read without us</p>
+      <p class="show-type-sample__meta">heading-2 · 1.5rem / 1.25 / 600</p>
+      <p class="show-h2">Product evidence</p>
+      <p class="show-type-sample__meta">heading-3 · 1.25rem / 1.25 / 500</p>
+      <p class="show-h3">Renderer reliability</p>
+      <p class="show-type-sample__meta">body · 1rem / 1.6 / 400</p>
+      <p>Body copy is set at a comfortable measure of 68 characters. It never scales with the viewport, so the reader keeps control of text size in the browser.</p>
+      <p class="show-type-sample__meta">small · 0.875rem / 1.5</p>
+      <p><small>Small text carries metadata: dates, status detail and captions.</small></p>
+      <p class="show-type-sample__meta">label · 0.8125rem / 500 / uppercase tracking</p>
+      <p class="show-label">Section label</p>
+      <p class="show-type-sample__meta">code · mono</p>
+      <p><code>work/voice/index.json</code></p>
+    </div>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="space">
+    <h2 id="space">Spacing and structure</h2>
+    <ul class="show-scale">
+      <li><span class="show-scale__bar" style="width: var(--pas-space-25);"></span><code>--pas-space-25</code> 0.25rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-50);"></span><code>--pas-space-50</code> 0.5rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-75);"></span><code>--pas-space-75</code> 0.75rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-100);"></span><code>--pas-space-100</code> 1rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-150);"></span><code>--pas-space-150</code> 1.5rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-200);"></span><code>--pas-space-200</code> 2rem</li>
+      <li><span class="show-scale__bar" style="width: var(--pas-space-300);"></span><code>--pas-space-300</code> 3rem</li>
+    </ul>
+    <div class="show-rows">
+      <div class="show-row"><span class="show-row__label">radius: sm / md / lg</span>
+        <span class="show-radius" style="border-radius: var(--pas-radius-sm);">4</span>
+        <span class="show-radius" style="border-radius: var(--pas-radius-md);">6</span>
+        <span class="show-radius" style="border-radius: var(--pas-radius-lg);">8</span>
+      </div>
+      <div class="show-row"><span class="show-row__label">elevation: raised</span>
+        <span class="show-elevation">raised</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="buttons">
+    <h2 id="buttons">Buttons</h2>
+    <p>Native <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements. Hover, focus and active states are live — tab through them.</p>
+    <div class="show-cluster">
+      <button class="pas-button pas-button--primary" type="button">Primary action</button>
+      <button class="pas-button pas-button--secondary" type="button">Secondary</button>
+      <button class="pas-button pas-button--text" type="button">Text action</button>
+      <a class="pas-button pas-button--secondary" href="#colors">Link styled as button</a>
+    </div>
+    <h3 class="show-subhead">Disabled and compact</h3>
+    <div class="show-cluster">
+      <button class="pas-button pas-button--primary" type="button" disabled>Disabled primary</button>
+      <button class="pas-button pas-button--secondary" type="button" disabled>Disabled secondary</button>
+      <button class="pas-button pas-button--primary pas-button--compact" type="button">Compact</button>
+    </div>
+    <p class="pas-field__help">Disabled controls are shown as unavailable, not as finished functionality.</p>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="form">
+    <h2 id="form">Form controls</h2>
+    <p>The form below submits nowhere. It is handled entirely in this page to demonstrate states, and it collects and transmits nothing.</p>
+
+    <form class="show-form" id="demo-form" novalidate>
+      <div class="pas-field">
+        <label class="pas-field__label" for="name">Your name <span class="pas-field__required">(required)</span></label>
+        <input class="pas-input" id="name" name="name" type="text" autocomplete="off" aria-describedby="name-help">
+        <p class="pas-field__help" id="name-help">Labels stay visible; help text sits below the control.</p>
+      </div>
+
+      <div class="pas-field">
+        <label class="pas-field__label" for="email">Email</label>
+        <input class="pas-input" id="email" name="email" type="email" autocomplete="off" aria-describedby="email-error" aria-invalid="true">
+        <p class="pas-field__error" id="email-error">This field shows the error treatment, with a 2px border and a message.</p>
+      </div>
+
+      <div class="pas-field">
+        <label class="pas-field__label" for="topic">Topic</label>
+        <select class="pas-select" id="topic" name="topic">
+          <option>Design tokens</option>
+          <option>Components</option>
+          <option>Accessibility</option>
+        </select>
+      </div>
+
+      <div class="pas-field">
+        <label class="pas-field__label" for="notes">Notes</label>
+        <textarea class="pas-textarea" id="notes" name="notes" rows="3"></textarea>
+        <p class="pas-field__help">Resizes vertically only, so the layout cannot be broken by a long paste.</p>
+      </div>
+
+      <fieldset class="show-fieldset">
+        <legend class="pas-field__label">Notifications</legend>
+        <div class="pas-check">
+          <input type="checkbox" id="opt-in" name="opt-in" checked>
+          <label class="pas-check__label" for="opt-in">Checked by default, keyboard operable</label>
+        </div>
+        <div class="pas-check">
+          <input type="checkbox" id="opt-out" name="opt-out">
+          <label class="pas-check__label" for="opt-out">Unchecked</label>
+        </div>
+        <div class="pas-check pas-check--disabled">
+          <input type="checkbox" id="opt-disabled" name="opt-disabled" disabled>
+          <label class="pas-check__label" for="opt-disabled">Unavailable option</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="show-fieldset">
+        <legend class="pas-field__label">Preferred cadence</legend>
+        <div class="pas-check">
+          <input type="radio" id="cadence-weekly" name="cadence" value="weekly" checked>
+          <label class="pas-check__label" for="cadence-weekly">Weekly</label>
+        </div>
+        <div class="pas-check">
+          <input type="radio" id="cadence-monthly" name="cadence" value="monthly">
+          <label class="pas-check__label" for="cadence-monthly">Monthly</label>
+        </div>
+      </fieldset>
+
+      <div class="show-cluster">
+        <button class="pas-button pas-button--primary" type="submit">Submit (stays on this page)</button>
+        <button class="pas-button pas-button--secondary" type="reset">Reset</button>
+      </div>
+
+      <p class="pas-alert pas-alert--positive" id="form-status" role="status" hidden>
+        <span class="pas-alert__title">Nothing was sent</span>
+        <span>This is a local demonstration. No request left the page and no data was stored.</span>
+      </p>
+    </form>
+
+    <h3 class="show-subhead">Disabled field</h3>
+    <div class="pas-field">
+      <label class="pas-field__label" for="locked">Locked value</label>
+      <input class="pas-input" id="locked" type="text" value="Read only in this state" disabled>
+    </div>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="feedback">
+    <h2 id="feedback">Badges and alerts</h2>
+    <div class="show-cluster">
+      <span class="pas-badge">Neutral</span>
+      <span class="pas-badge pas-badge--accent">Accent</span>
+      <span class="pas-badge pas-badge--positive">Pre-release</span>
+      <span class="pas-badge pas-badge--attention">Prototype</span>
+    </div>
+    <div class="show-stack">
+      <div class="pas-alert pas-alert--info">
+        <span class="pas-alert__title">Information</span>
+        <span>Package releases are not needed for the first consumer; a versioned file copy is enough.</span>
+      </div>
+      <div class="pas-alert pas-alert--positive">
+        <span class="pas-alert__title">Verified</span>
+        <span>Token references resolve, both themes meet their declared contrast minimums, and generated CSS is byte-identical across runs.</span>
+      </div>
+      <div class="pas-alert pas-alert--attention">
+        <span class="pas-alert__title">Attention</span>
+        <span>Contrast checks do not by themselves prove WCAG conformance. Keyboard and layout review are separate.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="nav">
+    <h2 id="nav">Navigation</h2>
+    <nav class="pas-nav" aria-label="Example navigation">
+      <a class="pas-nav__link" href="#colors" aria-current="page">Overview</a>
+      <a class="pas-nav__link" href="#type">Typing</a>
+      <a class="pas-nav__link" href="#form">Forms</a>
+      <a class="pas-nav__link" href="#table">Data</a>
+    </nav>
+    <p class="pas-field__help">Current page is marked with <code>aria-current="page"</code>, not colour alone.</p>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="table">
+    <h2 id="table">Table</h2>
+    <div class="pas-table-wrap">
+      <table class="pas-table">
+        <caption>Token groups in this version</caption>
+        <thead>
+          <tr>
+            <th scope="col">Group</th>
+            <th scope="col">Source</th>
+            <th scope="col">Emitted as</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Colour</th>
+            <td><code>tokens/themes.json</code></td>
+            <td><code>--pas-color-*</code></td>
+            <td><span class="pas-badge pas-badge--positive">Both themes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Typography</th>
+            <td><code>tokens/foundation.json</code></td>
+            <td><code>--pas-font-*</code></td>
+            <td><span class="pas-badge">Provisional</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Spacing</th>
+            <td><code>tokens/foundation.json</code></td>
+            <td><code>--pas-space-*</code></td>
+            <td><span class="pas-badge">Provisional</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Radius, border, motion</th>
+            <td><code>tokens/core.tokens.json</code></td>
+            <td><code>--pas-radius-*</code>, <code>--pas-motion-*</code></td>
+            <td><span class="pas-badge">Provisional</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="themes">
+    <h2 id="themes">Themes and brand status</h2>
+    <p>Both themes are <strong>provisional</strong>. Palette and typeface are <strong>awaiting brand approval</strong>: the values here are a working default so components can be built and tested, not a decision. Letter spacing is <strong>0</strong> at every size and weight in this version.</p>
+    <div class="pas-grid">
+      <div data-pas-theme="light">
+        <article class="pas-card">
+          <h3 class="pas-card__title">Light — provisional</h3>
+          <p class="pas-card__meta">brand approval pending</p>
+          <p>The same markup as the dark card, resolving light surface, container and outline values.</p>
+          <p><span class="pas-badge pas-badge--positive">Primary</span> <span class="pas-badge">Outline</span></p>
+        </article>
+      </div>
+      <div data-pas-theme="dark">
+        <article class="pas-card">
+          <h3 class="pas-card__title">Dark — provisional</h3>
+          <p class="pas-card__meta">brand approval pending</p>
+          <p>The same markup and role names, resolving dark surface, container and outline values.</p>
+          <p><span class="pas-badge pas-badge--positive">Primary</span> <span class="pas-badge">Outline</span></p>
+        </article>
+      </div>
+    </div>
+    <p class="pas-field__help">A branded typeface needs a chosen family, retained local font files, a licence decision and a platform loading strategy. None of that is chosen yet; platform system fonts are a temporary technical baseline, not a brand decision.</p>
+  </section>
+
+  <section class="pas-section show-section" aria-labelledby="cards">
+    <h2 id="cards">Cards</h2>
+    <div class="pas-grid">
+      <article class="pas-card">
+        <h3 class="pas-card__title">Semantic, not decorative</h3>
+        <p class="pas-card__meta">Colour roles</p>
+        <p>A role name describes a job. Rebranding replaces theme values; it does not rename classes or edit components.</p>
+      </article>
+      <article class="pas-card">
+        <h3 class="pas-card__title">Buildless consumption</h3>
+        <p class="pas-card__meta">Plain HTML and CSS</p>
+        <p>The generated stylesheets are the deliverable. A consumer imports the variables file, and imports base and components only if it wants the default look.</p>
+      </article>
+      <article class="pas-card">
+        <h3 class="pas-card__title">Checked, not asserted</h3>
+        <p class="pas-card__meta">scripts/validate.mjs, tests/</p>
+        <p>Role completeness, reference validity, deterministic output, contrast minimums and colour discipline are all machine-checked.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="show-footer pas-surface-container">
+  <div class="pas-container show-footer__inner">
+    <p class="pas-card__meta">Personal AI Systems design system v0.1.0 — provisional, brand approval pending. Semantic roles follow the Material Design approach; no affiliation with or certification by Google is implied.</p>
+    <nav class="pas-nav" aria-label="Footer">
+      <a class="pas-nav__link" href="#main">Back to top</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="showcase.js"></script>
+</body>
+</html>

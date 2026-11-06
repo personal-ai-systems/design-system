@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "name": "Personal AI Systems theme: dark",
+    "theme": "dark",
+    "label": "Dark",
+    "version": "0.1.0",
+    "status": "provisional",
+    "brandApproval": "pending",
+    "note": "PROVISIONAL. A working dark default, not an approved brand palette. Palette changes are edits to this file and provisional-light.tokens.json only."
+  },
+  "color": {
+    "primary": { "$type": "color", "$value": "{color.reference.accent.60}" },
+    "on-primary": { "$type": "color", "$value": "{color.reference.accent.10}" },
+    "primary-container": { "$type": "color", "$value": "{color.reference.accent.20}" },
+    "on-primary-container": { "$type": "color", "$value": "{color.reference.accent.80}" },
+    "secondary": { "$type": "color", "$value": "{color.reference.cool.70}" },
+    "on-secondary": { "$type": "color", "$value": "{color.reference.cool.20}" },
+    "tertiary": { "$type": "color", "$value": "{color.reference.deep.60}" },
+    "on-tertiary": { "$type": "color", "$value": "{color.reference.deep.20}" },
+    "surface": { "$type": "color", "$value": "{color.reference.neutral.92}" },
+    "on-surface": { "$type": "color", "$value": "{color.reference.neutral.10}" },
+    "surface-container": { "$type": "color", "$value": "{color.reference.neutral.96}" },
+    "on-surface-muted": { "$type": "color", "$value": "{color.reference.quiet.60}" },
+    "outline": { "$type": "color", "$value": "{color.reference.quiet.40}" },
+    "error": { "$type": "color", "$value": "{color.reference.alert.80}" },
+    "on-error": { "$type": "color", "$value": "{color.reference.alert.10}" },
+    "focus": { "$type": "color", "$value": "{color.reference.accent.60}" }
+  }
+}

@@ -1,0 +1,272 @@
+/* Base layer: element defaults and page scaffolding.
+ *
+ * Consumes semantic tokens only. No literal colours, no hue-named classes:
+ * a palette change must be a tokens/themes.json edit plus a rebuild.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--pas-color-surface);
+  color: var(--pas-color-on-surface);
+  font-family: var(--pas-font-body-family);
+  font-size: var(--pas-font-body-size);
+  font-weight: var(--pas-font-body-weight);
+  line-height: var(--pas-font-body-leading);
+  letter-spacing: var(--pas-font-body-tracking);
+  /* Both themes are dark or light as a whole, so native widgets should match. */
+  color-scheme: light dark;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--pas-space-stack);
+  color: var(--pas-color-on-surface);
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: var(--pas-font-heading-1-family);
+  font-size: var(--pas-font-heading-1-size);
+  font-weight: var(--pas-font-heading-1-weight);
+  line-height: var(--pas-font-heading-1-leading);
+  letter-spacing: var(--pas-font-heading-1-tracking);
+}
+
+h2 {
+  font-family: var(--pas-font-heading-2-family);
+  font-size: var(--pas-font-heading-2-size);
+  font-weight: var(--pas-font-heading-2-weight);
+  line-height: var(--pas-font-heading-2-leading);
+  letter-spacing: var(--pas-font-heading-2-tracking);
+}
+
+h3 {
+  font-family: var(--pas-font-heading-3-family);
+  font-size: var(--pas-font-heading-3-size);
+  font-weight: var(--pas-font-heading-3-weight);
+  line-height: var(--pas-font-heading-3-leading);
+  letter-spacing: var(--pas-font-heading-3-tracking);
+}
+
+h4 {
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  line-height: var(--pas-font-label-leading);
+  letter-spacing: var(--pas-font-label-tracking);
+  text-transform: uppercase;
+  color: var(--pas-color-on-surface-muted);
+}
+
+p {
+  margin: 0 0 var(--pas-space-stack);
+  max-width: var(--pas-measure-prose);
+  text-wrap: pretty;
+  /* Text fit: a long token, URL or unbroken label must not push the layout
+   * wider than a 320px viewport. */
+  overflow-wrap: anywhere;
+}
+
+small {
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+}
+
+a {
+  color: var(--pas-color-primary);
+  text-decoration-thickness: var(--pas-border-hairline);
+  text-underline-offset: 0.2em;
+  border-radius: var(--pas-radius-xs);
+}
+
+a:hover {
+  text-decoration-thickness: var(--pas-border-strong);
+}
+
+a:focus-visible {
+  outline: var(--pas-border-strong) solid var(--pas-color-focus);
+  outline-offset: 2px;
+}
+
+ul,
+ol {
+  margin: 0 0 var(--pas-space-stack);
+  padding-left: var(--pas-space-150);
+  max-width: var(--pas-measure-prose);
+}
+
+li + li {
+  margin-top: var(--pas-space-25);
+}
+
+hr {
+  border: 0;
+  border-top: var(--pas-border-hairline) solid var(--pas-color-outline);
+  margin: var(--pas-space-200) 0;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: var(--pas-space-50);
+  color: var(--pas-color-on-surface-muted);
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--pas-font-code-family);
+  font-size: var(--pas-font-code-size);
+  line-height: var(--pas-font-code-leading);
+}
+
+code {
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface);
+  padding: 0.1em 0.35em;
+  border-radius: var(--pas-radius-sm);
+}
+
+pre {
+  margin: 0 0 var(--pas-space-stack);
+  padding: var(--pas-space-inset);
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface);
+  border-radius: var(--pas-radius-md);
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+blockquote {
+  margin: 0 0 var(--pas-space-stack);
+  padding-left: var(--pas-space-inset);
+  border-left: var(--pas-border-strong) solid var(--pas-color-outline);
+  color: var(--pas-color-on-surface-muted);
+  max-width: var(--pas-measure-prose);
+}
+
+::selection {
+  background-color: var(--pas-color-primary-container);
+  color: var(--pas-color-on-primary-container);
+}
+
+/* A keyboard user must be able to see where they are, on every theme. */
+:focus-visible {
+  outline: var(--pas-border-strong) solid var(--pas-color-focus);
+  outline-offset: 2px;
+}
+
+/* Utilities that pages and the showcase both need. */
+.pas-container {
+  width: 100%;
+  max-width: var(--pas-measure-wide);
+  margin-inline: auto;
+  padding-inline: var(--pas-space-inset);
+}
+
+@media (min-width: 48rem) {
+  .pas-container {
+    padding-inline: var(--pas-space-inset-loose);
+  }
+}
+
+.pas-stack > * + * {
+  margin-top: var(--pas-space-stack);
+}
+
+.pas-stack-loose > * + * {
+  margin-top: var(--pas-space-stack-loose);
+}
+
+.pas-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pas-space-stack);
+  align-items: center;
+}
+
+.pas-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* First focusable element on the page: jumps past a long navigation. */
+.pas-skip-link {
+  position: absolute;
+  left: var(--pas-space-inset);
+  top: var(--pas-space-inset);
+  z-index: 10;
+  transform: translateY(-200%);
+  padding: var(--pas-space-50) var(--pas-space-inset);
+  background-color: var(--pas-color-primary);
+  color: var(--pas-color-on-primary);
+  border-radius: var(--pas-radius-md);
+  transition: transform var(--pas-motion-fast) var(--pas-motion-easing);
+}
+
+.pas-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.pas-prose {
+  max-width: var(--pas-measure-prose);
+}
+
+.pas-section {
+  padding-block: var(--pas-space-section);
+}
+
+.pas-section + .pas-section {
+  border-top: var(--pas-border-hairline) solid var(--pas-color-outline);
+}
+
+.pas-surface-container {
+  background-color: var(--pas-color-surface-container);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
