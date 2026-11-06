@@ -1,5 +1,13 @@
 name: Publish concept previews
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'previews/**'
+      - 'scripts/build-previews.mjs'
+      - 'dist/web/**'
+      - 'adapters/web/**'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
