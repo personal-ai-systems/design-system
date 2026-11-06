@@ -2,7 +2,7 @@
  *
  * Every value comes from a semantic token. Class names describe a role
  * (.pas-button--primary), never a hue. If a colour here had to change to
- * rebrand, this file would be wrong — edit tokens/themes.json instead.
+ * rebrand, this file would be wrong — edit themes/*.tokens.json instead.
  */
 
 /* --- button ----------------------------------------------------------- */

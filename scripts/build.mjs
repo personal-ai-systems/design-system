@@ -358,11 +358,13 @@ const nativeJs = [
   '',
   '/** Typography with a concrete platform mono family resolved for the given platform. */',
   'export function typographyFor(platform) {',
+  '  if (!Object.hasOwn(platformFonts, platform)) throw new Error(`unsupported platform "${platform}"`);',
   '  const mono = platform === "android" ? platformFonts.android.mono : platformFonts.ios.mono;',
   '  const out = {};',
   '  for (const [role, style] of Object.entries(typography)) {',
   '    const resolved = { ...style };',
   '    delete resolved.fontFamilyKey;',
+  '    if (resolved.fontFamily === null) delete resolved.fontFamily;',
   '    if (style.fontFamilyKey === "system-mono") resolved.fontFamily = mono;',
   '    out[role] = resolved;',
   '  }',
@@ -390,7 +392,7 @@ export interface NativeTypographyStyle {
   /** null means "use the platform UI font"; never a CSS font stack. */
   fontFamily: string | null;
   fontSize: number;
-  fontWeight: string;
+  fontWeight: '400' | '500' | '600';
   lineHeight: number;
   letterSpacing: number;
   fontFamilyKey: string;
@@ -445,7 +447,7 @@ export declare const unsupportedFields: string[];
 export declare const futureAdapters: string[];
 
 export declare function themeColors(name?: ThemeName): Record<ColorRole, string>;
-export declare function typographyFor(platform: 'ios' | 'android'): Record<TypographyRole, Omit<NativeTypographyStyle, 'fontFamilyKey'>>;
+export declare function typographyFor(platform: 'ios' | 'android'): Record<TypographyRole, Omit<NativeTypographyStyle, 'fontFamilyKey' | 'fontFamily'> & { fontFamily?: string }>;
 `;
 emit(join(PATHS.dist, 'native', 'theme.d.ts'), dts);
 

@@ -33,7 +33,7 @@ numbers in React Native today; that does not mean a mobile app looks finished.
 ## Layout
 
 ```
-tokens/core.tokens.json          ONE canonical source (DTCG 2025.10 subset)
+tokens/core.tokens.json          ONE canonical source (PAS typed profile)
 themes/registry.json             which themes exist, and the contrast claims
 themes/provisional-light.tokens.json   colour role -> reference ramp mapping
 themes/provisional-dark.tokens.json
@@ -59,6 +59,16 @@ Three rules keep this honest:
 3. **Nothing downstream edits `dist/`.** Regenerate instead.
 
 ## The core
+
+This is a **DTCG-inspired custom profile, not a DTCG 2025.10-conformant
+exchange file**. In particular, colours are hex strings rather than DTCG colour
+objects, and abstract font keys use a custom `string` type. External DTCG tools
+need a converter; none is claimed here. See the
+[DTCG format](https://www.designtokens.org/tr/2025.10/format/).
+
+The original web-only inputs and obsolete builder are retained for provenance
+under `docs/archive/web-v0/`. They are not build inputs or package exports and
+are excluded from the packed package. Never edit or run them for current work.
 
 Supported types are declared in `meta.supportedTypes` and enforced: `color`,
 `dimension`, `string`, `fontWeight`, `number`, `duration`, `cubicBezier`,
@@ -110,10 +120,11 @@ Web-only values (`68ch` prose measure, breakpoints in px) are in
 ## Native
 
 ```js
-import { typography, spacing, themeColors, typographyFor } from '@personal-ai-systems/design-system/native';
+import { spacing, themeColors, typographyFor } from '@personal-ai-systems/design-system/native';
 
+const typography = typographyFor('ios'); // use Platform.OS in a React Native app
 const styles = {
-  title: { ...typography.heading1, color: themeColors('light').onSurface },
+  title: { ...typography['heading-1'], color: themeColors('light')['on-surface'] },
   body: { ...typography.body, marginBottom: spacing.stack },
 };
 ```
@@ -129,8 +140,9 @@ What the adapter converts, and why:
 - `shadow` — structured layers plus a derived `opacity`. CSS `spread` and
   multi-layer stacking are **declared as unsupported** in
   `native.unsupportedFields`, not silently dropped.
-- Fonts — `fontFamily: null` means "leave it unset and take the platform UI
-  font". Mono is resolved per platform via `typographyFor('ios' | 'android')`,
+- Fonts — raw token metadata uses `fontFamily: null` for the platform default.
+  `typographyFor('ios' | 'android')` omits that property from actual styles and
+  removes internal font keys. Mono is resolved per platform,
   because no single family name is correct on both.
 
 ## Using it from another project

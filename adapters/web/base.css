@@ -1,7 +1,7 @@
 /* Base layer: element defaults and page scaffolding.
  *
  * Consumes semantic tokens only. No literal colours, no hue-named classes:
- * a palette change must be a tokens/themes.json edit plus a rebuild.
+ * a palette change must be a themes/*.tokens.json edit plus a rebuild.
  */
 
 *,

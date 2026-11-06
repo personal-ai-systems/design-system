@@ -18,6 +18,23 @@ const ROOT_FONT = mappings.web.rootFontSizePx;
 const webCss = readFileSync(join(PATHS.dist, 'web', 'variables.css'), 'utf8');
 const native = await import(pathToFileURL(join(PATHS.dist, 'native', 'theme.js')).href);
 
+test('documented native styles use real roles and omit platform-default font metadata', () => {
+  for (const platform of ['ios', 'android']) {
+    const typography = native.typographyFor(platform);
+    const title = { ...typography['heading-1'], color: native.themeColors('light')['on-surface'] };
+    assert.equal(typeof title.fontSize, 'number');
+    assert.match(title.color, /^#[0-9a-f]{6}$/i);
+    for (const style of Object.values(typography)) {
+      assert.equal('fontFamilyKey' in style, false);
+      assert.notEqual(style.fontFamily, null);
+      assert.ok(['400', '500', '600'].includes(style.fontWeight));
+    }
+    assert.equal('fontFamily' in typography.body, false);
+    assert.equal(typeof typography.code.fontFamily, 'string');
+  }
+  assert.throws(() => native.typographyFor('web'), /unsupported platform/);
+});
+
 function declarationsFor(themeName) {
   const clean = webCss.replace(/\/\*[\s\S]*?\*\//g, '');
   const pattern = /([^{}]+)\{([^{}]*)\}/g;

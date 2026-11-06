@@ -54,6 +54,9 @@ test('a packed tarball imports from an isolated consumer', () => {
     assert.equal(packaged.includes('scripts'), false, 'build scripts must not ship');
     assert.equal(packaged.includes('showcase'), false, 'showcase must not ship');
     assert.equal(packaged.includes('.git'), false, 'git metadata must not ship');
+    assert.equal(packaged.includes('docs'), false, 'historical inputs must not ship');
+    assert.equal(existsSync(join(installed, 'tokens', 'foundation.json')), false);
+    assert.equal(existsSync(join(installed, 'tokens', 'themes.json')), false);
 
     // --- package surface ---------------------------------------------
     const pkg = JSON.parse(readFileSync(join(installed, 'package.json'), 'utf8'));

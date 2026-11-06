@@ -201,6 +201,7 @@ const watch = [
   join(PATHS.dist, 'native', 'theme.d.ts'),
   join(PATHS.dist, 'tokens.json'),
   join(PATHS.dist, 'index.js'),
+  join(PATHS.dist, 'index.d.ts'),
   join(PATHS.dist, 'themes', 'light.json'),
   join(PATHS.dist, 'themes', 'dark.json'),
 ];

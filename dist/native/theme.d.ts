@@ -26,7 +26,7 @@ export interface NativeTypographyStyle {
   /** null means "use the platform UI font"; never a CSS font stack. */
   fontFamily: string | null;
   fontSize: number;
-  fontWeight: string;
+  fontWeight: '400' | '500' | '600';
   lineHeight: number;
   letterSpacing: number;
   fontFamilyKey: string;
@@ -81,4 +81,4 @@ export declare const unsupportedFields: string[];
 export declare const futureAdapters: string[];
 
 export declare function themeColors(name?: ThemeName): Record<ColorRole, string>;
-export declare function typographyFor(platform: 'ios' | 'android'): Record<TypographyRole, Omit<NativeTypographyStyle, 'fontFamilyKey'>>;
+export declare function typographyFor(platform: 'ios' | 'android'): Record<TypographyRole, Omit<NativeTypographyStyle, 'fontFamilyKey' | 'fontFamily'> & { fontFamily?: string }>;

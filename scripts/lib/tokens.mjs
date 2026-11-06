@@ -1,4 +1,4 @@
-// Token loading, DTCG-subset validation, alias resolution and contrast maths.
+// Token loading, PAS-profile validation, alias resolution and contrast maths.
 //
 // Node standard library only: no build framework, no Style Dictionary.
 // Supported subset is declared in tokens/core.tokens.json meta.supportedTypes;

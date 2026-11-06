@@ -271,11 +271,13 @@ export function themeColors(name = defaultThemeName) {
 
 /** Typography with a concrete platform mono family resolved for the given platform. */
 export function typographyFor(platform) {
+  if (!Object.hasOwn(platformFonts, platform)) throw new Error(`unsupported platform "${platform}"`);
   const mono = platform === "android" ? platformFonts.android.mono : platformFonts.ios.mono;
   const out = {};
   for (const [role, style] of Object.entries(typography)) {
     const resolved = { ...style };
     delete resolved.fontFamilyKey;
+    if (resolved.fontFamily === null) delete resolved.fontFamily;
     if (style.fontFamilyKey === "system-mono") resolved.fontFamily = mono;
     out[role] = resolved;
   }
