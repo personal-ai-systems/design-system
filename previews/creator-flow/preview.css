@@ -106,7 +106,9 @@ p { line-height: 1.65; }
 .footer { border-top: 1px solid var(--pas-color-outline); padding-block: 32px; }
 .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .footer__inner > span { color: var(--pas-color-on-surface-muted); font-size: 11px; }
-dialog { width: min(480px,calc(100% - 32px)); background: var(--pas-color-surface); color: var(--pas-color-on-surface); border: 1px solid var(--pas-color-outline); border-radius: var(--pas-radius-lg); padding: 28px; }
+dialog { width: min(480px,calc(100% - 32px)); max-height: calc(100svh - 32px); overflow: auto; background: var(--pas-color-surface); color: var(--pas-color-on-surface); border: 1px solid var(--pas-color-outline); border-radius: var(--pas-radius-lg); padding: 28px; }
+.palette-output { margin-top: 20px; }
+.palette-output[hidden] { display: none; }
 dialog::backdrop { background: var(--preview-image-shade); }
 .palette-editor h2 { font-size: 24px; }
 .palette-editor .section-heading { margin-bottom: 12px; align-items: center; }

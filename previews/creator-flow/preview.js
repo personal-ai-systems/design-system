@@ -31,7 +31,8 @@ document.getElementById('interest-form').addEventListener('submit', (event) => {
 
 const dialog = document.getElementById('palette-dialog');
 const editable = { primary: 'Primary action', 'on-primary': 'Action text', surface: 'Page background', 'on-surface': 'Main text', 'surface-container': 'Section background', 'primary-container': 'Feature background', 'on-primary-container': 'Feature text', tertiary: 'Accent', 'on-surface-muted': 'Secondary text' };
-const original = Object.fromEntries(Object.keys(editable).map((role) => [role, getComputedStyle(root).getPropertyValue(`--pas-color-${role}`).trim()]));
+const allRoles = ['primary', 'on-primary', 'primary-container', 'on-primary-container', 'secondary', 'on-secondary', 'tertiary', 'on-tertiary', 'surface', 'on-surface', 'surface-container', 'on-surface-muted', 'outline', 'error', 'on-error', 'focus'];
+const original = Object.fromEntries(allRoles.map((role) => [role, getComputedStyle(root).getPropertyValue(`--pas-color-${role}`).trim()]));
 const values = { ...original };
 function luminance(hex) {
   const rgb = hex.replace('#', '').match(/../g).map((v) => parseInt(v, 16) / 255).map((v) => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
@@ -51,10 +52,14 @@ for (const [role, label] of Object.entries(editable)) {
 document.getElementById('open-palette').addEventListener('click', () => { updateContrast(); dialog.showModal(); });
 dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
 document.getElementById('reset-colours').addEventListener('click', () => {
-  for (const [role, value] of Object.entries(original)) { values[role] = value; root.style.removeProperty(`--pas-color-${role}`); document.querySelector(`[data-role="${role}"]`).value = value; }
+  for (const [role, value] of Object.entries(original)) { values[role] = value; root.style.removeProperty(`--pas-color-${role}`); const input = document.querySelector(`[data-role="${role}"]`); if (input) input.value = value; }
+  document.getElementById('palette-output').hidden = true;
   updateContrast();
 });
 document.getElementById('export-colours').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify({ name: `Creator Flow / ${direction}`, status: 'review-proposal', baseVersion: '0.1.0', colorRoles: values }, null, 2) + '\n'], { type: 'application/json' });
-  const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = `creator-flow-${direction}-palette.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const json = JSON.stringify({ name: `Creator Flow / ${direction}`, status: 'review-proposal', baseVersion: '0.1.0', colorRoles: values }, null, 2) + '\n';
+  document.getElementById('palette-json').value = json;
+  document.getElementById('palette-output').hidden = false;
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = `creator-flow-${direction}-palette.json`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
