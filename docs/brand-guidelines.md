@@ -47,7 +47,7 @@ automatic accent removal, fabricated usage or claims of end-to-end availability.
 | Customer situation | Barrier | Proposed outcome | Boundary |
 | --- | --- | --- | --- |
 | A traveller has clips but avoids talking on camera | Exposure and production friction | A narrated, captioned travel story without appearing on screen | Not a claim of an available creator editor |
-| A multilingual creator prefers telling the story in their first language | Translation and comfort with English narration | A reviewed English script and an approved narration voice | Translation/voice integration is planned; preserve meaning, not accent-shaming |
+| A multilingual creator prefers telling the story in their first language | Translation and comfort with narration in another language | A reviewed script in a chosen language and an approved narration voice | Translation/voice integration is planned; preserve meaning, not accent-shaming |
 | A UGC creator or small hospitality operator has media for a brand brief | Brief, narrative and deliverables are disconnected | A focused stay/product story with requested formats | No promise of hotel partnerships, bookings, reach or revenue |
 | A creator needs several social placements | Repeating layout and caption work | Portrait, feed and landscape exports from an approved story | Three aspect ratios are demonstrated; distinct short/long edits remain planned |
 
@@ -120,7 +120,7 @@ admin panel. Colour proposals do not silently update canonical tokens.
 
 Current prototype evidence: local English transcription, captions/rendering,
 three aspect-ratio exports using a common timeline. Planned: image selection,
-Russian-to-English adaptation, integrated voice preparation, hosted creator
+adaptation into a creator-selected language, integrated voice preparation, hosted creator
 workflow and publishing connections. No customer numbers, timing reductions,
 conversion gains, paid demand or testimonials are established.
 

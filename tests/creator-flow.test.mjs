@@ -129,7 +129,7 @@ test('built and next are separated and public code is not claimed as this produc
   const [working, next] = section[0].split('<h3>Next, in this order</h3>');
   assert.match(working, /whisper\.cpp/);
   assert.match(working, /portrait, feed and landscape/);
-  assert.match(next, /Russian-to-English adaptation/);
+  assert.match(next, /adaptation into a creator-selected language/);
   assert.match(next, /Consent, licence and usage controls/);
   assert.match(next, /invited pilot/);
   assert.match(section[0], /https:\/\/github\.com\/personal-ai-systems\/personal-vault"/);
