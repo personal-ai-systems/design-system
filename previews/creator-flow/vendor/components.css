@@ -1,0 +1,423 @@
+/* Component layer: the v0 set.
+ *
+ * Every value comes from a semantic token. Class names describe a role
+ * (.pas-button--primary), never a hue. If a colour here had to change to
+ * rebrand, this file would be wrong — edit themes/*.tokens.json instead.
+ */
+
+/* --- button ----------------------------------------------------------- */
+
+.pas-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pas-space-50);
+  min-height: var(--pas-size-control);
+  padding: var(--pas-space-50) var(--pas-space-150);
+  border: var(--pas-border-hairline) solid transparent;
+  border-radius: var(--pas-radius-md);
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  line-height: var(--pas-font-label-leading);
+  letter-spacing: var(--pas-font-label-tracking);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--pas-motion-fast) var(--pas-motion-easing),
+    border-color var(--pas-motion-fast) var(--pas-motion-easing),
+    color var(--pas-motion-fast) var(--pas-motion-easing);
+}
+
+.pas-button--primary {
+  background-color: var(--pas-color-primary);
+  color: var(--pas-color-on-primary);
+  border-color: var(--pas-color-primary);
+}
+
+.pas-button--primary:hover {
+  background-color: var(--pas-color-on-primary-container);
+  border-color: var(--pas-color-on-primary-container);
+  color: var(--pas-color-on-primary);
+}
+
+.pas-button--secondary {
+  background-color: transparent;
+  color: var(--pas-color-on-surface);
+  border-color: var(--pas-color-outline);
+}
+
+.pas-button--secondary:hover {
+  background-color: var(--pas-color-surface-container);
+  border-color: var(--pas-color-on-surface-muted);
+}
+
+/* Text treatment: reads as a link, keeps button hit area. */
+.pas-button--text {
+  background-color: transparent;
+  color: var(--pas-color-primary);
+  border-color: transparent;
+  padding-inline: var(--pas-space-50);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pas-button--text:hover {
+  background-color: var(--pas-color-surface-container);
+}
+
+.pas-button:active {
+  transform: translateY(1px);
+}
+
+.pas-button:focus-visible {
+  outline: var(--pas-border-strong) solid var(--pas-color-focus);
+  outline-offset: 2px;
+}
+
+.pas-button[disabled],
+.pas-button[aria-disabled='true'] {
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface-muted);
+  border-color: var(--pas-color-outline);
+  cursor: not-allowed;
+  transform: none;
+  text-decoration: none;
+}
+
+.pas-button--compact {
+  min-height: var(--pas-size-control-compact);
+  padding-block: var(--pas-space-25);
+}
+
+/* --- form fields ------------------------------------------------------ */
+
+.pas-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pas-space-50);
+  margin-bottom: var(--pas-space-stack-loose);
+}
+
+.pas-field__label {
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  line-height: var(--pas-font-label-leading);
+  letter-spacing: var(--pas-font-label-tracking);
+  color: var(--pas-color-on-surface);
+}
+
+.pas-field__required {
+  color: var(--pas-color-on-surface-muted);
+  font-weight: var(--pas-font-body-weight);
+}
+
+.pas-input,
+.pas-textarea,
+.pas-select {
+  width: 100%;
+  min-height: var(--pas-size-control);
+  padding: var(--pas-space-50) var(--pas-space-75);
+  background-color: var(--pas-color-surface);
+  color: var(--pas-color-on-surface);
+  border: var(--pas-border-hairline) solid var(--pas-color-outline);
+  border-radius: var(--pas-radius-md);
+  font-family: var(--pas-font-body-family);
+  font-size: var(--pas-font-body-size);
+  line-height: var(--pas-font-body-leading);
+  transition: border-color var(--pas-motion-fast) var(--pas-motion-easing);
+}
+
+.pas-textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.pas-select {
+  /* Native select keeps its platform affordance; only the frame is ours. */
+  appearance: auto;
+}
+
+.pas-input:hover,
+.pas-textarea:hover,
+.pas-select:hover {
+  border-color: var(--pas-color-on-surface-muted);
+}
+
+.pas-input:focus-visible,
+.pas-textarea:focus-visible,
+.pas-select:focus-visible {
+  outline: var(--pas-border-strong) solid var(--pas-color-focus);
+  outline-offset: 1px;
+  border-color: var(--pas-color-primary);
+}
+
+.pas-input[disabled],
+.pas-textarea[disabled],
+.pas-select[disabled] {
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface-muted);
+  cursor: not-allowed;
+}
+
+.pas-input[aria-invalid='true'],
+.pas-textarea[aria-invalid='true'],
+.pas-select[aria-invalid='true'] {
+  border-color: var(--pas-color-error);
+  border-width: var(--pas-border-strong);
+}
+
+.pas-field__help {
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+  color: var(--pas-color-on-surface-muted);
+}
+
+.pas-field__error {
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+  color: var(--pas-color-error);
+  font-weight: var(--pas-font-label-weight);
+}
+
+/* --- checkbox and radio ---------------------------------------------- */
+
+.pas-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pas-space-50);
+  margin-bottom: var(--pas-space-50);
+}
+
+.pas-check input[type='checkbox'],
+.pas-check input[type='radio'] {
+  /* Native control, tinted from the token layer. */
+  accent-color: var(--pas-color-primary);
+  width: var(--pas-size-icon);
+  height: var(--pas-size-icon);
+  margin: 0.15rem 0 0;
+  flex: none;
+}
+
+.pas-check input:focus-visible {
+  outline: var(--pas-border-strong) solid var(--pas-color-focus);
+  outline-offset: 2px;
+}
+
+.pas-check__label {
+  font-size: var(--pas-font-body-size);
+  line-height: var(--pas-font-small-leading);
+}
+
+.pas-check--disabled {
+  color: var(--pas-color-on-surface-muted);
+}
+
+/* --- badge ------------------------------------------------------------ */
+
+.pas-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pas-space-25);
+  padding: var(--pas-space-25) var(--pas-space-50);
+  border: var(--pas-border-hairline) solid var(--pas-color-outline);
+  border-radius: var(--pas-radius-sm);
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  line-height: var(--pas-font-label-leading);
+  letter-spacing: var(--pas-font-label-tracking);
+  color: var(--pas-color-on-surface-muted);
+  background-color: var(--pas-color-surface-container);
+  white-space: nowrap;
+}
+
+.pas-badge--accent {
+  background-color: var(--pas-color-primary-container);
+  color: var(--pas-color-on-primary-container);
+  border-color: var(--pas-color-primary-container);
+}
+
+.pas-badge--positive {
+  background-color: transparent;
+  color: var(--pas-color-tertiary);
+  border-color: var(--pas-color-tertiary);
+}
+
+.pas-badge--attention {
+  background-color: transparent;
+  color: var(--pas-color-error);
+  border-color: var(--pas-color-error);
+}
+
+/* --- alert ------------------------------------------------------------ */
+
+.pas-alert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pas-space-25);
+  padding: var(--pas-space-inset);
+  border: var(--pas-border-hairline) solid var(--pas-color-outline);
+  border-left-width: var(--pas-border-strong);
+  border-radius: var(--pas-radius-md);
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface);
+}
+
+.pas-alert__title {
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  letter-spacing: var(--pas-font-label-tracking);
+}
+
+.pas-alert--positive {
+  border-color: var(--pas-color-tertiary);
+}
+
+.pas-alert--attention {
+  border-color: var(--pas-color-error);
+}
+
+.pas-alert--attention .pas-alert__title {
+  color: var(--pas-color-error);
+}
+
+.pas-alert--info {
+  border-color: var(--pas-color-primary);
+}
+
+/* --- navigation ------------------------------------------------------- */
+
+.pas-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pas-space-stack);
+}
+
+.pas-nav__link {
+  display: inline-block;
+  padding: var(--pas-space-25) var(--pas-space-50);
+  border-radius: var(--pas-radius-sm);
+  color: var(--pas-color-on-surface-muted);
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  font-weight: var(--pas-font-label-weight);
+  letter-spacing: var(--pas-font-label-tracking);
+  text-decoration: none;
+}
+
+.pas-nav__link:hover {
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface);
+}
+
+.pas-nav__link[aria-current='page'] {
+  color: var(--pas-color-on-surface);
+  text-decoration: underline;
+  text-decoration-thickness: var(--pas-border-strong);
+  text-underline-offset: 0.3em;
+}
+
+/* --- table ------------------------------------------------------------ */
+
+.pas-table-wrap {
+  overflow-x: auto;
+  border: var(--pas-border-hairline) solid var(--pas-color-outline);
+  border-radius: var(--pas-radius-lg);
+}
+
+.pas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+}
+
+.pas-table caption {
+  padding: var(--pas-space-50) var(--pas-space-75);
+  text-align: left;
+  color: var(--pas-color-on-surface-muted);
+  font-size: var(--pas-font-small-size);
+}
+
+.pas-table th,
+.pas-table td {
+  padding: var(--pas-space-50) var(--pas-space-75);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: var(--pas-border-hairline) solid var(--pas-color-outline);
+}
+
+.pas-table thead th {
+  background-color: var(--pas-color-surface-container);
+  color: var(--pas-color-on-surface);
+  font-family: var(--pas-font-label-family);
+  font-size: var(--pas-font-label-size);
+  letter-spacing: var(--pas-font-label-tracking);
+  white-space: nowrap;
+}
+
+.pas-table tbody tr:last-child th,
+.pas-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.pas-table tbody th {
+  font-weight: var(--pas-font-label-weight);
+}
+
+/* --- card ------------------------------------------------------------- */
+
+.pas-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pas-space-stack);
+  padding: var(--pas-space-inset-loose);
+  background-color: var(--pas-color-surface);
+  border: var(--pas-border-hairline) solid var(--pas-color-outline);
+  /* Repeated items stay at 8px or less: past that it reads as a decoration. */
+  border-radius: var(--pas-radius-lg);
+}
+
+.pas-card__title {
+  margin: 0;
+  font-family: var(--pas-font-heading-3-family);
+  font-size: var(--pas-font-heading-3-size);
+  font-weight: var(--pas-font-heading-3-weight);
+  line-height: var(--pas-font-heading-3-leading);
+}
+
+.pas-card__meta {
+  color: var(--pas-color-on-surface-muted);
+  font-size: var(--pas-font-small-size);
+  line-height: var(--pas-font-small-leading);
+  margin: 0;
+}
+
+.pas-card > p:last-child,
+.pas-card > ul:last-child {
+  margin-bottom: 0;
+}
+
+/* --- layout utilities ------------------------------------------------- */
+
+.pas-grid {
+  display: grid;
+  gap: var(--pas-space-stack-loose);
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+}
+
+.pas-split {
+  display: grid;
+  gap: var(--pas-space-stack-loose);
+}
+
+@media (min-width: 48rem) {
+  .pas-split {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}

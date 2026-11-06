@@ -1,0 +1,22 @@
+{
+  "package": "@personal-ai-systems/design-system",
+  "version": "0.1.0",
+  "status": "provisional",
+  "files": {
+    "variables.css": {
+      "source": "dist/web/variables.css",
+      "bytes": 6175,
+      "sha256": "f454a3fc277ae29437324a3ca498556b82a1640742f0745e1391bbb7ea0b3e3a"
+    },
+    "base.css": {
+      "source": "adapters/web/base.css",
+      "bytes": 6209,
+      "sha256": "39d54906a6c7610e587bf76e8dffe9d0c47614a78023dedd41e090d505db9122"
+    },
+    "components.css": {
+      "source": "adapters/web/components.css",
+      "bytes": 11315,
+      "sha256": "3d213950dcb2a115faeac5e8026b8a2c24f877c8f5b2a90a667e8a09ec35de94"
+    }
+  }
+}

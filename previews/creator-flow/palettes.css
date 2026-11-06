@@ -1,0 +1,63 @@
+/* Generated preview-only colour proposals; core brand tokens are unchanged. */
+:root {
+  --preview-on-image: #ffffff;
+  --preview-image-shade: #00130f40;
+  --preview-image-shadow: #00130f99;
+  --preview-studio-swatch: #075e53;
+  --preview-signal-swatch: #2348b5;
+  --preview-after-hours-swatch: #d4ef7c;
+}
+[data-preview-theme="studio"] {
+  --pas-color-primary: #075e53;
+  --pas-color-on-primary: #ffffff;
+  --pas-color-primary-container: #d9f0e8;
+  --pas-color-on-primary-container: #143d32;
+  --pas-color-secondary: #a33328;
+  --pas-color-on-secondary: #ffffff;
+  --pas-color-tertiary: #a33328;
+  --pas-color-on-tertiary: #ffffff;
+  --pas-color-surface: #ffffff;
+  --pas-color-on-surface: #182522;
+  --pas-color-surface-container: #f0f5f2;
+  --pas-color-on-surface-muted: #52635c;
+  --pas-color-outline: #6d7c75;
+  --pas-color-error: #b3261e;
+  --pas-color-on-error: #ffffff;
+  --pas-color-focus: #075e53;
+}
+[data-preview-theme="signal"] {
+  --pas-color-primary: #2348b5;
+  --pas-color-on-primary: #ffffff;
+  --pas-color-primary-container: #e4ebff;
+  --pas-color-on-primary-container: #172d69;
+  --pas-color-secondary: #a62e53;
+  --pas-color-on-secondary: #ffffff;
+  --pas-color-tertiary: #a62e53;
+  --pas-color-on-tertiary: #ffffff;
+  --pas-color-surface: #ffffff;
+  --pas-color-on-surface: #19232e;
+  --pas-color-surface-container: #f1f3fa;
+  --pas-color-on-surface-muted: #566171;
+  --pas-color-outline: #738096;
+  --pas-color-error: #b3261e;
+  --pas-color-on-error: #ffffff;
+  --pas-color-focus: #2348b5;
+}
+[data-preview-theme="after-hours"] {
+  --pas-color-primary: #d4ef7c;
+  --pas-color-on-primary: #17200d;
+  --pas-color-primary-container: #2c3819;
+  --pas-color-on-primary-container: #e1f1b4;
+  --pas-color-secondary: #ffb5a1;
+  --pas-color-on-secondary: #3a211b;
+  --pas-color-tertiary: #ffb5a1;
+  --pas-color-on-tertiary: #3a211b;
+  --pas-color-surface: #171a18;
+  --pas-color-on-surface: #f0f3ec;
+  --pas-color-surface-container: #222824;
+  --pas-color-on-surface-muted: #b1bdb3;
+  --pas-color-outline: #87998a;
+  --pas-color-error: #ffb4ab;
+  --pas-color-on-error: #690005;
+  --pas-color-focus: #d4ef7c;
+}

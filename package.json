@@ -53,7 +53,7 @@
     "access": "restricted"
   },
   "notes": {
-    "notPublished": "Local only. Publishing to npm, a public GitHub remote and a legal licence choice are open decisions, documented in README.md. `private: true` blocks an accidental publish.",
+    "notPublished": "Source is public on GitHub. Publishing to npm and a legal licence choice remain open decisions, documented in README.md. `private: true` blocks an accidental npm publish.",
     "status": "0.1.x is provisional: brand palette and typeface are not approved. `UNLICENSED` is a placeholder, not a licence choice."
   }
 }

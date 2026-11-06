@@ -22,7 +22,8 @@ build pipeline, a database or a runtime dependency.
 | Native component kit | **not built** — this is tokens only |
 | SwiftUI / Jetpack Compose adapters | **not built** — documented as future work |
 | Device QA on iOS/Android | **not done** |
-| Published to npm / public Git remote | **not done** — a decision, not an oversight |
+| Public GitHub repository | available at `personal-ai-systems/design-system` |
+| Published to npm | **not done** |
 | Legal licence | **not chosen** — `UNLICENSED` is a placeholder |
 
 A native token adapter is not a mobile component kit. Someone can consume these
@@ -201,6 +202,15 @@ structure.
 
 ## Not decided here
 
-Publishing to npm, creating a public Git remote, and choosing a legal licence.
+Publishing to npm and choosing a legal licence.
 `private: true` and `UNLICENSED` keep 0.1.0 unpublishable until those decisions
 are made deliberately.
+
+## Public concept previews
+
+Three colour directions using the same token/component package are in
+`previews/creator-flow/`. Their provisional palettes do not change the shared
+brand defaults. Run `node scripts/build-previews.mjs` to regenerate the variants
+and validate local assets, vendor copies and declared text contrast.
+GitHub Pages deploys only that static preview, using `.github/workflows/pages.yml`.
+The form is explicitly a browser-local demonstration: no submissions or storage.
