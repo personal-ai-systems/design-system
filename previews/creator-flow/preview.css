@@ -168,3 +168,11 @@ dialog::backdrop { background: var(--preview-image-shade); }
   .directions { margin-left: 0; gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (max-width: 700px) and (max-height: 700px) {
+  .hero__inner { padding-block: 24px; }
+  .hero .eyebrow, .hero__tagline { display: none; }
+  .hero h1 { margin-bottom: 12px; }
+  .hero__category { font-size: 16px; margin-bottom: 16px; }
+  .hero__copy { margin-bottom: 16px; }
+  .hero__status { margin-top: 12px; }
+}
