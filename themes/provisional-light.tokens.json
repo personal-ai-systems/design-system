@@ -24,6 +24,12 @@
     "outline": { "$type": "color", "$value": "{color.reference.neutral.40}" },
     "error": { "$type": "color", "$value": "{color.reference.alert.30}" },
     "on-error": { "$type": "color", "$value": "{color.reference.neutral.0}" },
-    "focus": { "$type": "color", "$value": "{color.reference.accent.30}" }
+    "focus": { "$type": "color", "$value": "{color.reference.accent.30}" },
+    "primary-hover": { "$type": "color", "$value": "{color.reference.accent.20}" },
+    "surface-hover": { "$type": "color", "$value": "{color.reference.neutral.10}" },
+    "success": { "$type": "color", "$value": "{color.role-defaults.success}" },
+    "warning": { "$type": "color", "$value": "{color.role-defaults.warning}" },
+    "on-image": { "$type": "color", "$value": "{color.role-defaults.on-image}" },
+    "image-scrim": { "$type": "color", "$value": "{color.role-defaults.image-scrim}" }
   }
 }

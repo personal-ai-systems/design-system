@@ -1,20 +1,17 @@
 /* Generated: canonical default and reviewer-only alternatives. */
 :root {
-  --preview-on-image: #ffffff;
-  --preview-image-shade: #00130f99;
-  --preview-image-shadow: #00130f99;
-  --preview-studio-swatch: #075e53;
+  --preview-studio-swatch: #174ac0;
   --preview-signal-swatch: #2348b5;
   --preview-after-hours-swatch: #d4ef7c;
 }
 [data-preview-theme="studio"] {
-  --pas-color-primary: #075e53;
+  --pas-color-primary: #174ac0;
   --pas-color-on-primary: #ffffff;
-  --pas-color-primary-container: #d9f0e8;
-  --pas-color-on-primary-container: #143d32;
+  --pas-color-primary-container: #e9efff;
+  --pas-color-on-primary-container: #102349;
   --pas-color-secondary: #a33328;
   --pas-color-on-secondary: #ffffff;
-  --pas-color-tertiary: #0f5f55;
+  --pas-color-tertiary: #684d91;
   --pas-color-on-tertiary: #ffffff;
   --pas-color-surface: #ffffff;
   --pas-color-on-surface: #191c1f;
@@ -23,7 +20,13 @@
   --pas-color-outline: #737b83;
   --pas-color-error: #b3261e;
   --pas-color-on-error: #ffffff;
-  --pas-color-focus: #075e53;
+  --pas-color-focus: #174ac0;
+  --pas-color-primary-hover: #153d89;
+  --pas-color-surface-hover: #eef1f5;
+  --pas-color-success: #19733b;
+  --pas-color-warning: #8a5100;
+  --pas-color-on-image: #ffffff;
+  --pas-color-image-scrim: #06151f99;
 }
 [data-preview-theme="signal"] {
   --pas-color-primary: #2348b5;
@@ -42,6 +45,12 @@
   --pas-color-error: #b3261e;
   --pas-color-on-error: #ffffff;
   --pas-color-focus: #2348b5;
+  --pas-color-primary-hover: #153d89;
+  --pas-color-surface-hover: #eef1f5;
+  --pas-color-success: #19733b;
+  --pas-color-warning: #8a5100;
+  --pas-color-on-image: #ffffff;
+  --pas-color-image-scrim: #06151f99;
 }
 [data-preview-theme="after-hours"] {
   --pas-color-primary: #d4ef7c;
@@ -60,4 +69,10 @@
   --pas-color-error: #ffb4ab;
   --pas-color-on-error: #690005;
   --pas-color-focus: #d4ef7c;
+  --pas-color-primary-hover: #153d89;
+  --pas-color-surface-hover: #eef1f5;
+  --pas-color-success: #19733b;
+  --pas-color-warning: #8a5100;
+  --pas-color-on-image: #ffffff;
+  --pas-color-image-scrim: #06151f99;
 }

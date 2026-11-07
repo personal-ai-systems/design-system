@@ -5,8 +5,8 @@
   "files": {
     "variables.css": {
       "source": "dist/web/variables.css",
-      "bytes": 6175,
-      "sha256": "6499f26e6bd281625d914a51deef84f58876969b0da8090e37fed3880ccc9486"
+      "bytes": 7407,
+      "sha256": "ee4313b722611c969d34ad808f033e62e01ad690e2237000de3364153d2bf898"
     },
     "base.css": {
       "source": "adapters/web/base.css",
@@ -15,8 +15,8 @@
     },
     "components.css": {
       "source": "adapters/web/components.css",
-      "bytes": 11315,
-      "sha256": "3d213950dcb2a115faeac5e8026b8a2c24f877c8f5b2a90a667e8a09ec35de94"
+      "bytes": 11301,
+      "sha256": "7436751e3fd84708f1058c0aa76f6b8342822bd345b173efecb9c55306ae7e05"
     }
   }
 }

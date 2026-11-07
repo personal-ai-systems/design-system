@@ -2,193 +2,223 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
+import { siteMetadata, renderSitePage } from '../scripts/lib/site-metadata.mjs';
+import { contrastRatio } from '../scripts/lib/tokens.mjs';
 
 const read = (name) => readFileSync(new URL('../previews/creator-flow/' + name, import.meta.url), 'utf8');
 const html = read('index.html');
+const brief = read('product-brief.html');
+const config = JSON.parse(read('site.config.json'));
+const core = JSON.parse(readFileSync(new URL('../tokens/core.tokens.json', import.meta.url)));
+const variants = ['index.html', 'signal.html', 'after-hours.html', 'product-brief.html'];
 
-test('the customer page has four visible use cases and no public review strip', () => {
-  assert.equal((html.match(/<article>/g) || []).length, 4);
-  assert.match(html, /<aside class="review-strip" hidden/);
-  assert.doesNotMatch(html, /Concept preview|Submit expression of interest/);
-  assert.match(read('preview.css'), /\[hidden\]\s*\{\s*display:\s*none !important/);
-  assert.match(read('preview.js'), /get\('review'\) === '1'/);
+test('four illustrated steps explain inputs, style, another voice and the Instagram-first output', () => {
+  const workflow = html.match(/<section class="workflow-band[\s\S]*?<\/section>/)[0];
+  assert.equal((workflow.match(/class="journey-step"/g) || []).length, 4);
+  assert.equal((workflow.match(/class="workflow-visual/g) || []).length, 4);
+  assert.equal((workflow.match(/role="img" aria-label="[^"]+"/g) || []).length, 4);
+  assert.match(workflow, /Illustrated concept, not a working editor/);
+  assert.match(workflow, /hotel and story below are fictional/);
+  assert.match(workflow, /template, or share a reference video/);
+  assert.match(workflow, /Start with a short Instagram Reel\. A fuller Facebook cut can add commentary/);
+  assert.match(workflow, /Compare tone, pace and pronunciation in the same language/);
+  assert.match(workflow, /not an automatic post/);
+  assert.match(workflow, /not an audio sample/);
+  assert.doesNotMatch(workflow.match(/<ol class="workflow">[\s\S]*?<\/ol>/)[0], /<button|<input|<audio/);
+  assert.ok(html.indexOf('id="how-it-works"') < html.indexOf('id="demo"'));
+  for (const name of variants.slice(0, 3)) {
+    const page = readFileSync(new URL('../.pages-site/' + name, import.meta.url), 'utf8');
+    assert.equal((page.match(/class="journey-step"/g) || []).length, 4, name);
+  }
+  const image = readFileSync(new URL('../previews/creator-flow/assets/workflow-hotel-story.jpg', import.meta.url));
+  assert.ok(image.length > 10000 && image.length < 600000);
 });
 
-test('every in-page destination exists and the footer has no dummy links', () => {
-  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
-  for (const [, id] of html.matchAll(/href="#([^"]*)"/g)) assert.ok(id && ids.has(id), id);
-  const footer = html.match(/<footer[\s\S]*?<\/footer>/)[0];
-  assert.match(footer, /CONSENS PTY LTD/);
-  assert.match(footer, /mailto:kirill@consens.com.au/);
-  assert.match(footer, /href="#privacy"/);
-  assert.doesNotMatch(footer, /href="#"|Concept preview|Studio|Signal/);
+test('voice-first problem and market case distinguish evidence from hypotheses', () => {
+  assert.match(html, /Your story\.<br>A voice you choose\./);
+  assert.match(html, /everyday voice, accent or delivery/);
+  assert.match(html, /Adapt it into another language only when you want a second version/);
+  assert.match(html, /No talking-head performance or lip-sync is required/);
+  assert.match(html, /does not have to illustrate every sentence literally/);
+  assert.match(html, /Illustrative voice choices, not an audio sample/);
+  assert.match(html, /not a measured market for this product/);
+  assert.match(html, /Illustrative TAM ceiling/);
+  assert.match(brief, /Revenue assumption/);
+  assert.match(brief, /not a validated price/);
+  assert.match(brief, /SAM sensitivity/);
+  assert.match(brief, /not research findings/);
+  assert.match(brief, /not existing traction/);
+  assert.match(brief, /Meta already offers Reel translation/);
+  assert.match(brief, /including|retries/);
+  assert.match(brief, /not provider-credit resale/);
+  assert.match(brief, /credits per approved export/);
+  assert.equal(2000000 * 15 * 12, 360000000);
+  assert.equal(2000000 * 0.01 * 15 * 12, 3600000);
+  assert.equal(2000000 * 0.05 * 15 * 12, 18000000);
+  for (const domain of ['blog.youtube', 'goldmansachs.com']) assert.ok(html.includes(domain) && brief.includes(domain));
 });
 
-test('enquiry prepares encoded mail and a fallback without sending or navigating', () => {
+test('story controls are opt-in, bounded and only speak the visible script with a local voice', () => {
   const elements = new Map();
-  const element = (id) => {
-    if (!elements.has(id)) elements.set(id, { hidden: true, addEventListener(type, fn) { this[type] = fn; } });
+  const element = id => {
+    if (!elements.has(id)) elements.set(id, { hidden: true, disabled: false, addEventListener(type, fn) { this[type] = fn; } });
+    return elements.get(id);
+  };
+  const slides = ['Hotel story', 'Travel story', 'Product story'].map(textContent => ({ querySelector: () => ({ textContent }) }));
+  const voices = [{ lang: 'en-US', localService: false }, { lang: 'en-AU', localService: true }];
+  const spoken = [];
+  let stops = 0;
+  runInNewContext(read('preview.js'), {
+    URLSearchParams,
+    document: {
+      documentElement: { dataset: { previewTheme: 'studio' } },
+      getElementById: element,
+      querySelector: selector => {
+        if (selector === '.story-carousel') return { querySelectorAll: () => slides };
+        if (selector === '.review-strip') return element('review');
+        return null;
+      },
+    },
+    window: {
+      location: { search: '' },
+      addEventListener() {},
+      SpeechSynthesisUtterance: class { constructor(text) { this.text = text; } },
+      speechSynthesis: { getVoices: () => voices, addEventListener() {}, speak: value => spoken.push(value), cancel() { stops++; } },
+    },
+  });
+  assert.equal(element('story-audio').hidden, false);
+  assert.equal(element('story-position').textContent, '1 / 3');
+  assert.equal(element('story-prev').disabled, true);
+  assert.deepEqual(slides.map(s => s.hidden), [false, true, true]);
+  assert.equal(spoken.length, 0);
+  element('story-play').click();
+  assert.equal(spoken[0].text, 'Hotel story');
+  assert.equal(spoken[0].voice, voices[1]);
+  element('story-next').click();
+  assert.equal(stops, 1);
+  assert.deepEqual(slides.map(s => s.hidden), [true, false, true]);
+  element('story-next').click();
+  element('story-next').click();
+  assert.equal(element('story-position').textContent, '3 / 3');
+  assert.equal(element('story-next').disabled, true);
+});
+
+test('customer narrative has one product H1, four visible cases and hidden reviewer controls', () => {
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  assert.match(html, /<h1[^>]*>Creator Flow<\/h1>/);
+  assert.equal((html.match(/<article>/g) || []).length, 4);
+  assert.match(html, /For independent travel &amp; UGC creators/);
+  assert.match(html, /<aside class="review-strip" hidden/);
+  assert.doesNotMatch(html, /Concept preview|Six stages|stage-map|33,000,000/);
+  assert.match(read('preview.css'), /\[hidden\]\s*\{\s*display:\s*none !important/);
+});
+
+test('generated pages have unique IDs, real anchors, assets and exact metadata', () => {
+  for (const name of variants) {
+    const page = readFileSync(new URL('../.pages-site/' + name, import.meta.url), 'utf8');
+    assert.equal((page.match(/<h1\b/g) || []).length, 1, name);
+    assert.doesNotMatch(page, /__SITE_URL__|__STRUCTURED_DATA__|href="#"|href=""/);
+    const matches = [...page.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+    assert.equal(new Set(matches).size, matches.length, name + ': duplicate IDs');
+    for (const [, id] of page.matchAll(/href="#([^"]*)"/g)) assert.ok(matches.includes(id), name + '#' + id);
+    const graph = JSON.parse(page.match(/id="structured-data">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(graph['@context'], 'https://schema.org');
+    assert.equal(graph['@graph'].length, 5);
+    assert.ok(graph['@graph'].every(item => item['@id'].startsWith(config.url)));
+    assert.doesNotMatch(JSON.stringify(graph), /aggregateRating|offers|downloadUrl|installUrl|reviewRating/);
+  }
+});
+
+test('schema entities describe the real prelaunch product, not a free released app', () => {
+  const graph = siteMetadata(config)['@graph'];
+  assert.equal(graph.find(x => x['@type'] === 'Organization').name, 'CONSENS PTY LTD');
+  const app = graph.find(x => x['@type'] === 'SoftwareApplication');
+  assert.match(app.description, /in development/);
+  assert.match(app.description, /Not yet a self-service/);
+  assert.equal(app.applicationCategory, 'MultimediaApplication');
+  assert.throws(() => siteMetadata({ ...config, url: 'http://example.com/' }), /HTTPS/);
+  assert.throws(() => siteMetadata({ ...config, url: 'https://user:secret@example.com/' }), /credentials/);
+  assert.throws(() => siteMetadata({ ...config, url: 'https://example.com/?private=1' }), /query/);
+  assert.doesNotMatch(renderSitePage(html, { ...config, productName: '<unsafe>' }, 'index.html').match(/id="structured-data">([\s\S]*?)<\/script>/)[1], /<unsafe>/);
+});
+
+test('enquiry installs the no-send handler before enabling HTML controls', () => {
+  assert.match(html, /<fieldset id="enquiry-fields" disabled>/);
+  assert.match(html, /<noscript>[\s\S]*?mailto:kirill@consens.com.au/);
+  assert.match(html, /name="message"[^>]*required[^>]*maxlength="2000"/);
+  assert.doesNotMatch(html, /name="name"[^>]*required/);
+  const elements = new Map();
+  const element = id => {
+    if (!elements.has(id)) elements.set(id, { hidden: true, disabled: true, addEventListener(type, fn) { this[type] = fn; } });
     return elements.get(id);
   };
   const context = {
-    document: {
-      documentElement: { dataset: { previewTheme: 'studio' } },
-      querySelector: (selector) => selector === '.review-strip' ? element('review') : null,
-      getElementById: element,
-    },
-    window: { location: { search: '' } },
-    URLSearchParams,
+    document: { documentElement: { dataset: { previewTheme: 'studio' } }, querySelector: selector => selector === '.review-strip' ? element('review') : null, getElementById: element },
+    window: { location: { search: '' } }, URLSearchParams,
     FormData: class { constructor(target) { this.values = target; } get(key) { return this.values[key]; } },
   };
   runInNewContext(read('preview.js'), context);
   assert.equal(element('review').hidden, true);
+  assert.equal(element('enquiry-fields').disabled, false);
   let prevented = false;
-  element('interest-form').submit({
-    preventDefault() { prevented = true; },
-    currentTarget: { name: 'Test & Example', audience: 'UGC', message: 'A story? <not HTML> #1' },
-  });
+  element('interest-form').submit({ preventDefault() { prevented = true; }, currentTarget: { name: 'Test & Example', audience: 'UGC', message: 'Привет? <not HTML> #1' } });
   assert.equal(prevented, true);
   const mail = new URL(element('enquiry-link').href);
   assert.equal(mail.protocol, 'mailto:');
-  assert.equal(mail.pathname, 'kirill@consens.com.au');
-  assert.equal(mail.searchParams.get('subject'), 'Creator Flow early-access enquiry');
-  assert.match(mail.searchParams.get('body'), /Test & Example/);
-  assert.match(element('enquiry-copy').value, /<not HTML>/);
+  assert.equal(mail.pathname, config.contact);
+  assert.match(mail.searchParams.get('body'), /Привет\? <not HTML> #1/);
+  assert.match(element('enquiry-copy').value, /Test & Example/);
   assert.equal(element('form-result').hidden, false);
   assert.equal(context.window.location.search, '');
+  assert.doesNotMatch(read('preview.js'), /fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|document.cookie/);
 });
 
-test('default palette uses the shared package rather than duplicated values', () => {
+test('all canonical roles remain exportable and the default has one token source', () => {
+  const roles = runInNewContext(read('preview.js').match(/const allRoles = (\[[^;]+\]);/)[1]);
+  assert.deepEqual([...roles], core.requirements.colorRoles);
   const themes = JSON.parse(read('themes.json'));
   assert.equal(themes.studio.source, 'canonical-light');
   assert.equal(themes.studio.roles, undefined);
+  const css = read('preview.css');
+  assert.match(css, /--pas-font-hero-size/);
+  assert.match(css, /--pas-color-image-scrim/);
+  assert.doesNotMatch(css, /font-size:[^;]*(?:vw|cqw)|letter-spacing:\s*-|#[0-9a-f]{3,8}\b/i);
+  const generated = readFileSync(new URL('../dist/web/variables.css', import.meta.url), 'utf8');
+  const defined = new Set([...generated.matchAll(/(--pas-[\w-]+)\s*:/g)].map(m => m[1]));
+  for (const [, variable] of css.matchAll(/var\((--pas-[\w-]+)/g)) assert.ok(defined.has(variable), variable);
 });
 
-// --- content contract for the reviewer-facing revision -------------------
-//
-// The immediate reader is a grant reviewer asking a fixed set of questions.
-// These assertions keep the answers present and keep the unevidenced claims
-// out. They check the generated variants too, because both are published.
+test('image scrim supports white text even over a white source pixel', () => {
+  const colors = JSON.parse(readFileSync(new URL('../dist/themes/light.json', import.meta.url))).colors;
+  const hex = colors['image-scrim'].slice(1);
+  const alpha = parseInt(hex.slice(6), 16) / 255;
+  const composite = '#' + [0, 2, 4].map(i => Math.round(parseInt(hex.slice(i, i + 2), 16) * alpha + 255 * (1 - alpha)).toString(16).padStart(2, '0')).join('');
+  assert.ok(contrastRatio(colors['on-image'], composite) >= 4.5);
+});
 
-const variants = ['index.html', 'signal.html', 'after-hours.html'];
+test('product brief carries the venture case without invented business evidence', () => {
+  for (const pattern of [/The problem/, /first audience/, /product hypothesis/, /evaluating ElevenLabs/, /Grant credits would support/, /business, not a one-off/, /test the market/, /CONSENS PTY LTD/, /not provider-credit resale/i]) assert.match(brief, pattern);
+  assert.match(brief, /Live API output and the complete creator workflow are not yet validated/);
+  assert.match(brief, /Pricing, unit economics and willingness to pay remain to be tested/);
+  assert.match(html, /not guaranteed accent removal/);
+  assert.match(html, /Silent, with generated imagery/);
+  assert.match(html, /not a real hotel or a demonstration of AI narration/);
+});
 
-test('every published variant states the product category literally', () => {
+test('truthful footer, privacy and crawl assets survive every build', () => {
   for (const name of variants) {
-    const page = read(name);
-    assert.match(page, /Voice-led video creation for independent creators\./, name);
-    assert.match(page, /<h1[^>]*>Creator Flow<\/h1>/, name);
-    assert.match(page, /Personal AI Systems/, name);
+    const page = readFileSync(new URL('../.pages-site/' + name, import.meta.url), 'utf8');
+    assert.match(page, /CONSENS PTY LTD/);
+    for (const claim of [/trusted by/i, /our customers/i, /\d+\+? (creators|customers|users)/i, /free trial/i, /powered by ElevenLabs/i, /grant (approved|awarded)/i]) assert.doesNotMatch(page, claim);
+    if (/\$\s?\d/.test(page)) assert.match(page, /(?:modelling input only|not a measured market for this product)/);
+    assert.doesNotMatch(page, /\/Users\/|\.moltis|personal-vault\/raw/);
   }
-});
-
-test('the voice section keeps the six stages in order and states what runs', () => {
-  const page = read('index.html');
-  const section = page.match(/<section class="voice-band[^"]*"[\s\S]*?<\/section>/);
-  assert.ok(section, 'voice section is missing');
-  const order = ['Spoken brief', 'Transcript', 'Reviewed script', 'Approved narration', 'Captions', 'Export'];
-  const positions = order.map((stage) => section[0].indexOf(`<h3>${stage}</h3>`));
-  positions.forEach((position, index) => assert.ok(position > -1, `${order[index]} missing`));
-  const sorted = [...positions].sort((a, b) => a - b);
-  assert.deepEqual(positions, sorted, 'stages are out of order');
-
-  const states = [...section[0].matchAll(/<span class="stage-state">([^<]+)<\/span>/g)].map((match) => match[1]);
-  assert.equal(states.length, 6);
-  assert.equal(states.filter((state) => state === 'Working').length, 4);
-  assert.equal(states.filter((state) => state === 'Proposed').length, 1);
-  assert.equal(states.filter((state) => state === 'Planned').length, 1);
-  assert.match(section[0], /stage-state">Proposed<\/span><h3>Approved narration/, 'narration must not read as shipped');
-  assert.match(section[0], /whisper\.cpp/);
-});
-
-test('ElevenLabs is named as an intended integration, with no claimed relationship', () => {
-  const page = read('index.html');
-  assert.match(page, /intended ElevenLabs integration/);
-  assert.match(page, /ElevenLabs is the intended provider for that stage/);
-  assert.match(page, /adapters are implemented in the prototype/);
-  assert.match(page, /live API output and the complete creator workflow are not yet validated/);
-  assert.doesNotMatch(page, /paid voice branch has not been built/);
-  for (const claim of [
-    /powered by ElevenLabs/i,
-    /ElevenLabs partner/i,
-    /grant (approved|awarded)/i,
-    /we (have )?partnered/i,
-    /official (partner|provider)/i,
-    /accent removal (is|works)/i,
-    /guaranteed (accent|results|income|growth)/i,
-  ]) {
-    assert.doesNotMatch(page, claim);
-  }
-});
-
-test('built and next are separated and public code is not claimed as this product', () => {
-  const page = read('index.html');
-  const section = page.match(/<section class="proof-band[^"]*"[\s\S]*?<\/section>/);
-  assert.ok(section, 'built section is missing');
-  assert.match(section[0], /<h3>Working today<\/h3>/);
-  assert.match(section[0], /<h3>Next, in this order<\/h3>/);
-  const [working, next] = section[0].split('<h3>Next, in this order</h3>');
-  assert.match(working, /whisper\.cpp/);
-  assert.match(working, /portrait, feed and landscape/);
-  assert.match(next, /adaptation into a creator-selected language/);
-  assert.match(next, /Consent, licence and usage controls/);
-  assert.match(next, /invited pilot/);
-  assert.match(section[0], /https:\/\/github\.com\/personal-ai-systems\/personal-vault"/);
-  assert.match(section[0], /https:\/\/github\.com\/personal-ai-systems\/personal-vault-ui/);
-  assert.match(section[0], /not the source of Creator Flow/);
-});
-
-test('the business section states own product, planned paid access and the operator', () => {
-  const page = read('index.html');
-  const section = page.match(/<section class="business[^"]*"[\s\S]*?<\/section>/);
-  assert.ok(section, 'business section is missing');
-  assert.match(section[0], /CONSENS PTY LTD/);
-  assert.match(section[0], /our own commercial product/);
-  assert.match(section[0], /not resold provider credits/);
-  assert.match(section[0], /planned paid service/);
-  assert.doesNotMatch(section[0], /we do not make campaign videos to order/);
-  assert.match(section[0], /paid access to that workflow/);
-  assert.match(section[0], /repeatable workflow, not a single commissioned video/);
-  assert.match(section[0], /No price is published/);
-  assert.match(section[0], /no account to create/);
-});
-
-test('cache and spending claims stay within actual prototype scope', () => {
-  assert.match(html, /audio caching reuses unchanged narration/);
-  assert.doesNotMatch(html, /an edit re-renders only what changed/);
-  assert.match(html, /planned paid service will include a usage preview/);
-  assert.doesNotMatch(html, /cost is shown before the request is made and charged/);
-});
-
-test('no invented traction, price, social proof or inert link survives the page', () => {
-  const page = read('index.html');
-  for (const claim of [
-    /testimonial/i, /trusted by/i, /our customers/i, /case study/i,
-    /[0-9]+\+? (creators|customers|users)/i, /\$\s?\d/, /£\s?\d/, /€\s?\d/,
-    /free trial/i, /book a demo/i, /lorem ipsum/i,
-  ]) {
-    assert.doesNotMatch(page, claim);
-  }
-  assert.doesNotMatch(page, /href="#"|href=""/);
-});
-
-test('the silent sample keeps its honest label in every variant', () => {
-  for (const name of variants) {
-    const page = read(name);
-    assert.match(page, /seven-second visual sample/, name);
-    assert.match(page, /It is silent: it does not demonstrate voice generation or translation/, name);
-    assert.match(page, /Generated imagery, not a real hotel, customer result or partnership/, name);
-    assert.match(page, /Not yet a self-service creation tool/, name);
-  }
-});
-
-test('published preview files carry no local path or private record', () => {
-  const published = ['index.html', 'signal.html', 'after-hours.html', 'preview.css', 'palettes.css', 'preview.js', 'themes.json', 'README.md'];
-  for (const name of published) {
-    const text = read(name);
-    assert.doesNotMatch(text, /\/Users\/[a-z]/, `${name} contains an absolute home path`);
-    for (const term of ['personal-vault/raw', '.moltis', 'travel-ugc', 'ABN 61 678', 'workspace root']) {
-      assert.ok(!text.includes(term), `${name} contains "${term}"`);
-    }
-  }
+  assert.match(html, /hosting\/CDN and email providers/);
+  assert.doesNotMatch(html, /GitHub Pages/);
+  const robots = readFileSync(new URL('../.pages-site/robots.txt', import.meta.url), 'utf8');
+  const sitemap = readFileSync(new URL('../.pages-site/sitemap.xml', import.meta.url), 'utf8');
+  assert.ok(robots.includes(config.url + 'sitemap.xml'));
+  assert.ok(sitemap.includes(config.url + 'product-brief.html'));
+  assert.doesNotMatch(sitemap, /signal.html|after-hours.html|review=1/);
 });
 

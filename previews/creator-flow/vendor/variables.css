@@ -12,6 +12,16 @@
 
 :root {
   /* typography roles */
+  --pas-font-hero-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-hero-size: 4rem;
+  --pas-font-hero-weight: 600;
+  --pas-font-hero-leading: 1.15;
+  --pas-font-hero-tracking: 0;
+  --pas-font-interface-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --pas-font-interface-size: 0.8125rem;
+  --pas-font-interface-weight: 400;
+  --pas-font-interface-leading: 1.4286;
+  --pas-font-interface-tracking: 0;
   --pas-font-display-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --pas-font-display-size: 2.5rem;
   --pas-font-display-weight: 600;
@@ -77,11 +87,14 @@
   --pas-space-page: 3rem;
 
   /* geometry */
+  --pas-radius-control: 6px;
   --pas-radius-full: 9999px;
   --pas-radius-lg: 8px;
   --pas-radius-md: 6px;
   --pas-radius-none: 0;
+  --pas-radius-pill: 9999px;
   --pas-radius-sm: 4px;
+  --pas-radius-surface: 8px;
   --pas-radius-xs: 2px;
   --pas-border-hairline: 1px;
   --pas-border-strong: 2px;
@@ -112,13 +125,13 @@
 /* Light theme — provisional, brand approval pending */
 :root,
 [data-pas-theme="light"] {
-  --pas-color-primary: #075e53;
+  --pas-color-primary: #174ac0;
   --pas-color-on-primary: #ffffff;
-  --pas-color-primary-container: #d9f0e8;
-  --pas-color-on-primary-container: #143d32;
+  --pas-color-primary-container: #e9efff;
+  --pas-color-on-primary-container: #102349;
   --pas-color-secondary: #a33328;
   --pas-color-on-secondary: #ffffff;
-  --pas-color-tertiary: #0f5f55;
+  --pas-color-tertiary: #684d91;
   --pas-color-on-tertiary: #ffffff;
   --pas-color-surface: #ffffff;
   --pas-color-on-surface: #191c1f;
@@ -127,15 +140,21 @@
   --pas-color-outline: #737b83;
   --pas-color-error: #b3261e;
   --pas-color-on-error: #ffffff;
-  --pas-color-focus: #075e53;
+  --pas-color-focus: #174ac0;
+  --pas-color-primary-hover: #153d89;
+  --pas-color-surface-hover: #eef1f5;
+  --pas-color-success: #19733b;
+  --pas-color-warning: #8a5100;
+  --pas-color-on-image: #ffffff;
+  --pas-color-image-scrim: #06151f99;
 }
 
 /* Dark theme — provisional, brand approval pending */
 [data-pas-theme="dark"] {
-  --pas-color-primary: #94dfca;
-  --pas-color-on-primary: #143d32;
-  --pas-color-primary-container: #164b3c;
-  --pas-color-on-primary-container: #d9f0e8;
+  --pas-color-primary: #b4c9ff;
+  --pas-color-on-primary: #102349;
+  --pas-color-primary-container: #153d89;
+  --pas-color-on-primary-container: #e9efff;
   --pas-color-secondary: #b3c6e0;
   --pas-color-on-secondary: #1e2c3d;
   --pas-color-tertiary: #7fd8c9;
@@ -147,16 +166,22 @@
   --pas-color-outline: #8b949c;
   --pas-color-error: #ffb4ab;
   --pas-color-on-error: #690005;
-  --pas-color-focus: #94dfca;
+  --pas-color-focus: #b4c9ff;
+  --pas-color-primary-hover: #e9efff;
+  --pas-color-surface-hover: #333a41;
+  --pas-color-success: #9edbb1;
+  --pas-color-warning: #ffd599;
+  --pas-color-on-image: #ffffff;
+  --pas-color-image-scrim: #06151f99;
 }
 
 /* Follow the operating system when no explicit theme is set. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-pas-theme]) {
-    --pas-color-primary: #94dfca;
-    --pas-color-on-primary: #143d32;
-    --pas-color-primary-container: #164b3c;
-    --pas-color-on-primary-container: #d9f0e8;
+    --pas-color-primary: #b4c9ff;
+    --pas-color-on-primary: #102349;
+    --pas-color-primary-container: #153d89;
+    --pas-color-on-primary-container: #e9efff;
     --pas-color-secondary: #b3c6e0;
     --pas-color-on-secondary: #1e2c3d;
     --pas-color-tertiary: #7fd8c9;
@@ -168,7 +193,13 @@
     --pas-color-outline: #8b949c;
     --pas-color-error: #ffb4ab;
     --pas-color-on-error: #690005;
-    --pas-color-focus: #94dfca;
+    --pas-color-focus: #b4c9ff;
+    --pas-color-primary-hover: #e9efff;
+    --pas-color-surface-hover: #333a41;
+    --pas-color-success: #9edbb1;
+    --pas-color-warning: #ffd599;
+    --pas-color-on-image: #ffffff;
+    --pas-color-image-scrim: #06151f99;
   }
 }
 

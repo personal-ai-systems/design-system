@@ -36,8 +36,8 @@
 }
 
 .pas-button--primary:hover {
-  background-color: var(--pas-color-on-primary-container);
-  border-color: var(--pas-color-on-primary-container);
+  background-color: var(--pas-color-primary-hover);
+  border-color: var(--pas-color-primary-hover);
   color: var(--pas-color-on-primary);
 }
 

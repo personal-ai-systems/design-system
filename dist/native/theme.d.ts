@@ -18,9 +18,15 @@ export type ColorRole =
   | "outline"
   | "error"
   | "on-error"
-  | "focus";
+  | "focus"
+  | "primary-hover"
+  | "surface-hover"
+  | "success"
+  | "warning"
+  | "on-image"
+  | "image-scrim";
 
-export type TypographyRole = "display" | "heading-1" | "heading-2" | "heading-3" | "body" | "small" | "label" | "code";
+export type TypographyRole = "hero" | "interface" | "display" | "heading-1" | "heading-2" | "heading-3" | "body" | "small" | "label" | "code";
 
 export interface NativeTypographyStyle {
   /** null means "use the platform UI font"; never a CSS font stack. */

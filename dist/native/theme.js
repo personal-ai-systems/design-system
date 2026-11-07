@@ -28,13 +28,13 @@ export const themes = {
     "status": "provisional",
     "brandApproval": "pending",
     "colors": {
-      "primary": "#075e53",
+      "primary": "#174ac0",
       "on-primary": "#ffffff",
-      "primary-container": "#d9f0e8",
-      "on-primary-container": "#143d32",
+      "primary-container": "#e9efff",
+      "on-primary-container": "#102349",
       "secondary": "#a33328",
       "on-secondary": "#ffffff",
-      "tertiary": "#0f5f55",
+      "tertiary": "#684d91",
       "on-tertiary": "#ffffff",
       "surface": "#ffffff",
       "on-surface": "#191c1f",
@@ -43,7 +43,13 @@ export const themes = {
       "outline": "#737b83",
       "error": "#b3261e",
       "on-error": "#ffffff",
-      "focus": "#075e53"
+      "focus": "#174ac0",
+      "primary-hover": "#153d89",
+      "surface-hover": "#eef1f5",
+      "success": "#19733b",
+      "warning": "#8a5100",
+      "on-image": "#ffffff",
+      "image-scrim": "#06151f99"
     }
   },
   "dark": {
@@ -52,10 +58,10 @@ export const themes = {
     "status": "provisional",
     "brandApproval": "pending",
     "colors": {
-      "primary": "#94dfca",
-      "on-primary": "#143d32",
-      "primary-container": "#164b3c",
-      "on-primary-container": "#d9f0e8",
+      "primary": "#b4c9ff",
+      "on-primary": "#102349",
+      "primary-container": "#153d89",
+      "on-primary-container": "#e9efff",
       "secondary": "#b3c6e0",
       "on-secondary": "#1e2c3d",
       "tertiary": "#7fd8c9",
@@ -67,12 +73,34 @@ export const themes = {
       "outline": "#8b949c",
       "error": "#ffb4ab",
       "on-error": "#690005",
-      "focus": "#94dfca"
+      "focus": "#b4c9ff",
+      "primary-hover": "#e9efff",
+      "surface-hover": "#333a41",
+      "success": "#9edbb1",
+      "warning": "#ffd599",
+      "on-image": "#ffffff",
+      "image-scrim": "#06151f99"
     }
   }
 };
 
 export const typography = {
+  "hero": {
+    "fontFamily": null,
+    "fontSize": 64,
+    "fontWeight": "600",
+    "lineHeight": 74,
+    "letterSpacing": 0,
+    "fontFamilyKey": "system-sans"
+  },
+  "interface": {
+    "fontFamily": null,
+    "fontSize": 13,
+    "fontWeight": "400",
+    "lineHeight": 19,
+    "letterSpacing": 0,
+    "fontFamilyKey": "system-sans"
+  },
   "display": {
     "fontFamily": null,
     "fontSize": 40,
@@ -162,11 +190,14 @@ export const spacing = {
 };
 
 export const radius = {
+  "control": 6,
   "full": 9999,
   "lg": 8,
   "md": 6,
   "none": 0,
+  "pill": 9999,
   "sm": 4,
+  "surface": 8,
   "xs": 2
 };
 

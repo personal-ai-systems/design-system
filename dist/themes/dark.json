@@ -5,10 +5,10 @@
   "brandApproval": "pending",
   "note": "PROVISIONAL colour mapping. Not an approved brand palette.",
   "colors": {
-    "primary": "#94dfca",
-    "on-primary": "#143d32",
-    "primary-container": "#164b3c",
-    "on-primary-container": "#d9f0e8",
+    "primary": "#b4c9ff",
+    "on-primary": "#102349",
+    "primary-container": "#153d89",
+    "on-primary-container": "#e9efff",
     "secondary": "#b3c6e0",
     "on-secondary": "#1e2c3d",
     "tertiary": "#7fd8c9",
@@ -20,6 +20,12 @@
     "outline": "#8b949c",
     "error": "#ffb4ab",
     "on-error": "#690005",
-    "focus": "#94dfca"
+    "focus": "#b4c9ff",
+    "primary-hover": "#e9efff",
+    "surface-hover": "#333a41",
+    "success": "#9edbb1",
+    "warning": "#ffd599",
+    "on-image": "#ffffff",
+    "image-scrim": "#06151f99"
   }
 }

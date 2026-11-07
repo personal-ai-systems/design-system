@@ -1,8 +1,8 @@
 // GENERATED FILE — DO NOT EDIT. Regenerate: node scripts/build.mjs
 
 export type ThemeName = "light" | "dark";
-export type ColorRole = "primary" | "on-primary" | "primary-container" | "on-primary-container" | "secondary" | "on-secondary" | "tertiary" | "on-tertiary" | "surface" | "on-surface" | "surface-container" | "on-surface-muted" | "outline" | "error" | "on-error" | "focus";
-export type TypographyRole = "display" | "heading-1" | "heading-2" | "heading-3" | "body" | "small" | "label" | "code";
+export type ColorRole = "primary" | "on-primary" | "primary-container" | "on-primary-container" | "secondary" | "on-secondary" | "tertiary" | "on-tertiary" | "surface" | "on-surface" | "surface-container" | "on-surface-muted" | "outline" | "error" | "on-error" | "focus" | "primary-hover" | "surface-hover" | "success" | "warning" | "on-image" | "image-scrim";
+export type TypographyRole = "hero" | "interface" | "display" | "heading-1" | "heading-2" | "heading-3" | "body" | "small" | "label" | "code";
 
 export interface Dimension {
   value: number;

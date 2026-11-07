@@ -334,7 +334,7 @@ export function platformNeutralModel(core, themeDocs) {
     typography,
     space,
     spaceRoles,
-    radius: pick('radius'),
+    radius: { ...pick('radius'), ...pick('semantic.radius') },
     border: pick('border'),
     size: pick('size'),
     opacity: pick('opacity'),

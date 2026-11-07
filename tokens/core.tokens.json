@@ -35,11 +35,11 @@
         "96": { "$type": "color", "$value": "#1c2024" }
       },
       "accent": {
-        "10": { "$type": "color", "$value": "#143d32" },
-        "20": { "$type": "color", "$value": "#164b3c" },
-        "30": { "$type": "color", "$value": "#075e53" },
-        "60": { "$type": "color", "$value": "#94dfca" },
-        "80": { "$type": "color", "$value": "#d9f0e8" }
+        "10": { "$type": "color", "$value": "#102349" },
+        "20": { "$type": "color", "$value": "#153d89" },
+        "30": { "$type": "color", "$value": "#174ac0" },
+        "60": { "$type": "color", "$value": "#b4c9ff" },
+        "80": { "$type": "color", "$value": "#e9efff" }
       },
       "cool": {
         "20": { "$type": "color", "$value": "#1e2c3d" },
@@ -48,7 +48,7 @@
       },
       "deep": {
         "20": { "$type": "color", "$value": "#00382f" },
-        "30": { "$type": "color", "$value": "#0f5f55" },
+        "30": { "$type": "color", "$value": "#684d91" },
         "60": { "$type": "color", "$value": "#7fd8c9" }
       },
       "alert": {
@@ -60,6 +60,12 @@
         "40": { "$type": "color", "$value": "#8b949c" },
         "60": { "$type": "color", "$value": "#a8b1ba" }
       }
+    },
+    "role-defaults": {
+      "success": { "$type": "color", "$value": "#19733b" },
+      "warning": { "$type": "color", "$value": "#8a5100" },
+      "on-image": { "$type": "color", "$value": "#ffffff" },
+      "image-scrim": { "$type": "color", "$value": "#06151f99" }
     }
   },
   "font": {
@@ -74,6 +80,8 @@
       "strong": { "$type": "fontWeight", "$value": 600 }
     },
     "size": {
+      "hero": { "$type": "dimension", "$value": { "value": 64, "unit": "px" } },
+      "interface": { "$type": "dimension", "$value": { "value": 13, "unit": "px" } },
       "display": { "$type": "dimension", "$value": { "value": 40, "unit": "px" } },
       "heading-1": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
       "heading-2": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
@@ -162,6 +170,20 @@
   "semantic": {
     "$description": "Platform-neutral roles. Components consume these, never the primitives above and never a theme value directly.",
     "typography": {
+      "hero": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.hero}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.strong}" },
+        "lineHeight": { "$type": "number", "$value": "{font.leading.display}" },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.display}" }
+      },
+      "interface": {
+        "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
+        "fontSize": { "$type": "dimension", "$value": "{font.size.interface}" },
+        "fontWeight": { "$type": "fontWeight", "$value": "{font.weight.regular}" },
+        "lineHeight": { "$type": "number", "$value": 1.4286 },
+        "letterSpacing": { "$type": "dimension", "$value": "{font.tracking.body}" }
+      },
       "display": {
         "fontFamily": { "$type": "string", "$value": "{font.family.sans}" },
         "fontSize": { "$type": "dimension", "$value": "{font.size.display}" },
@@ -252,9 +274,12 @@
       "outline",
       "error",
       "on-error",
-      "focus"
+      "focus",
+      "primary-hover", "surface-hover", "success", "warning", "on-image", "image-scrim"
     ],
     "typographyRoles": [
+      "hero",
+      "interface",
       "display",
       "heading-1",
       "heading-2",

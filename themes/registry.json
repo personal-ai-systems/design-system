@@ -29,6 +29,10 @@
       { "theme": "light", "foreground": "on-error", "background": "error", "min": 4.5 },
       { "theme": "light", "foreground": "focus", "background": "surface", "min": 3 },
       { "theme": "light", "foreground": "outline", "background": "surface", "min": 3 },
+      { "theme": "light", "foreground": "on-primary", "background": "primary-hover", "min": 4.5 },
+      { "theme": "light", "foreground": "on-surface", "background": "surface-hover", "min": 4.5 },
+      { "theme": "light", "foreground": "success", "background": "surface", "min": 4.5 },
+      { "theme": "light", "foreground": "warning", "background": "surface", "min": 4.5 },
       { "theme": "dark", "foreground": "on-primary", "background": "primary", "min": 4.5 },
       { "theme": "dark", "foreground": "on-primary-container", "background": "primary-container", "min": 4.5 },
       { "theme": "dark", "foreground": "on-secondary", "background": "secondary", "min": 4.5 },
@@ -39,7 +43,11 @@
       { "theme": "dark", "foreground": "on-surface-muted", "background": "surface-container", "min": 4.5 },
       { "theme": "dark", "foreground": "on-error", "background": "error", "min": 4.5 },
       { "theme": "dark", "foreground": "focus", "background": "surface", "min": 3 },
-      { "theme": "dark", "foreground": "outline", "background": "surface", "min": 3 }
+      { "theme": "dark", "foreground": "outline", "background": "surface", "min": 3 },
+      { "theme": "dark", "foreground": "on-primary", "background": "primary-hover", "min": 4.5 },
+      { "theme": "dark", "foreground": "on-surface", "background": "surface-hover", "min": 4.5 },
+      { "theme": "dark", "foreground": "success", "background": "surface", "min": 4.5 },
+      { "theme": "dark", "foreground": "warning", "background": "surface", "min": 4.5 }
     ]
   }
 }

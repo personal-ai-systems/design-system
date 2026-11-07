@@ -14,7 +14,8 @@
     'primary', 'on-primary', 'primary-container', 'on-primary-container',
     'secondary', 'on-secondary', 'tertiary', 'on-tertiary',
     'surface', 'on-surface', 'surface-container', 'on-surface-muted',
-    'outline', 'error', 'on-error', 'focus'
+    'outline', 'error', 'on-error', 'focus',
+    'primary-hover', 'surface-hover', 'success', 'warning', 'on-image', 'image-scrim'
   ];
 
   // Convert rgb()/rgba() to hex when the browser reports computed colours.

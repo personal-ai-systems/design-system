@@ -24,6 +24,12 @@
     "outline": { "$type": "color", "$value": "{color.reference.quiet.40}" },
     "error": { "$type": "color", "$value": "{color.reference.alert.80}" },
     "on-error": { "$type": "color", "$value": "{color.reference.alert.10}" },
-    "focus": { "$type": "color", "$value": "{color.reference.accent.60}" }
+    "focus": { "$type": "color", "$value": "{color.reference.accent.60}" },
+    "primary-hover": { "$type": "color", "$value": "{color.reference.accent.80}" },
+    "surface-hover": { "$type": "color", "$value": "{color.reference.neutral.70}" },
+    "success": { "$type": "color", "$value": "#9edbb1" },
+    "warning": { "$type": "color", "$value": "#ffd599" },
+    "on-image": { "$type": "color", "$value": "{color.role-defaults.on-image}" },
+    "image-scrim": { "$type": "color", "$value": "{color.role-defaults.image-scrim}" }
   }
 }

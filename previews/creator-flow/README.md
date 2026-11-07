@@ -3,29 +3,39 @@
 Customer-facing candidate with optional reviewer colour directions:
 `index.html` (Studio), `signal.html`, `after-hours.html`. This is not a working
 AI editor or a launched service. No testimonials, customer claims or hotel
-partnerships are implied. Four customer use cases remain visible without a
-carousel. The enquiry prepares an encoded email link and a copyable fallback;
+partnerships are implied. Four customer use cases stay visible; a separate
+three-story carousel illustrates the chosen-narrator workflow. Browser playback
+uses only available local device voices, never ElevenLabs. The enquiry
+prepares an encoded email link and a copyable fallback;
 it never sends or stores information. The visitor reviews/sends in their email
 app. The previous inert Submit button is deliberately removed.
 
-`index.html` is the editable master. Run `node scripts/build-previews.mjs`
+`index.html` is the editable master template. Run `npm run check`
 from the repository root after changes. The other two HTML files, palettes and
 vendor copies are generated. The `--output` artifact is deleted and rebuilt
 from nothing, so a retired demo asset cannot survive at a public URL beside the
 current page.
 
-Page order: hero and product-category line, the customer problem, four use
-cases, the labelled format sample, the three-step workflow, the six-stage voice
-map (`#voice`), the voice/accent principles band (`#principles`), built versus
-next (`#built`), the product and intended business (`#product`), the enquiry
-form, data and privacy. `#voice` labels each stage working, planned or proposed
-and names ElevenLabs only as an intended integration for the narration stage.
-`#built` separates what runs today from what is next and points at the public
-`personal-vault` and `personal-vault-ui` repositories as separate first-party
-evidence, not as this product's source. `#product` states the own-product and
-planned-paid-access position: no agency production, no provider-credit resale.
-`tests/creator-flow.test.mjs` enforces these statements and forbids partnership,
-award, traction, price and accent-removal claims.
+Page order: product/audience, creator narration problem, four illustrated
+workflow steps, voice-story carousel, labelled visual sample, four use cases, sourced business
+case with explicitly hypothetical market arithmetic, concise prototype status, FAQ,
+enquiry and privacy. A linked `product-brief.html` carries the venture case,
+market-validation approach, operator, planned business model and intended
+ElevenLabs role. No claimed traction, validated TAM, product price or grant/partnership.
+`tests/creator-flow.test.mjs` enforces these boundaries without freezing the
+customer page into a grant-review checklist.
+
+`site.config.json` is the single canonical deployment URL/operator/product
+input. The build resolves metadata placeholders, JSON-LD, robots.txt and sitemap.
+No source template with unresolved placeholders is a deployment artifact.
+The local review server adds X-Robots-Tag:noindex. Alternate colour pages stay
+noindex/canonical to the main page; this is not a private admin interface.
+
+Build with `npm run check`, then run `node scripts/serve-preview.mjs` for local
+review at port5088. The server exposes only `.pages-site`, bound to127.0.0.1,
+not arbitrary repository/private files. Website indexing and deployment are
+separate release decisions. Main structured-data vocabulary was checked in
+the official schema.org validator; that is not Google rich-result acceptance.
 
 `themes.json` contains preview-only semantic
 colour alternatives. Studio derives from the canonical light-theme export,
@@ -46,6 +56,16 @@ imaginary coastal terrace; no real location, customer or hotel is represented.
 Icons: lucide-static 0.468.0 from jsDelivr; licence retained in assets/icons/LICENSE.
 System fonts are inherited from the design system. No remote fonts, analytics,
 cookie scripts or paid generation requests are used at page load.
+
+Workflow image: `assets/workflow-hotel-story.jpg`, generated with the built-in
+image tool on 7 November 2026. Three consistent fictional coastal-hotel photos
+(room, balcony view, breakfast), without people, logos or text. It is one
+contact sheet reused with CSS crops, not customer footage or a real hotel.
+No image was transmitted to a new provider. The page labels both the example
+and the not-yet-functional editor/voice output. UI labels are accessible HTML,
+not text baked into images. The three shown languages are illustrative choices,
+not a verified supported-language list. Same visuals do not imply identical
+timing or word-for-word image matching across language versions.
 
 The seven-second silent landscape illustration is rendered locally from the
 same generated image. Its optional VTT text is illustrative, not a transcript
